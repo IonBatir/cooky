@@ -10,9 +10,9 @@ const MainStack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <MainStack.Navigator mode="modal">
-        <MainStack.Screen name={AUTH_STACK} component={AppStack} />
-        <MainStack.Screen name={APP_STACK} component={AuthStack} />
+      <MainStack.Navigator mode="modal" headerMode="none">
+        <MainStack.Screen name={AUTH_STACK} component={AuthStack} />
+        <MainStack.Screen name={APP_STACK} component={AppStack} />
       </MainStack.Navigator>
     </NavigationContainer>
   );
