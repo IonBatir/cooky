@@ -1,4 +1,4 @@
-package com.cooky;
+package com.ionbatir.cooky;
 
 import com.facebook.react.ReactActivity;
 

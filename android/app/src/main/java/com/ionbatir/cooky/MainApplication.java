@@ -1,4 +1,4 @@
-package com.cooky;
+package com.ionbatir.cooky;
 
 import android.app.Application;
 import android.content.Context;
