@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { SPACING, FONT_FAMILY, FONT_SIZE } from '../theme';
+import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from '../theme';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginHorizontal: SPACING.MEDIUM,
+    paddingHorizontal: SPACING.MEDIUM,
+    backgroundColor: COLOR.BACKGROUND,
   },
   centerContainer: {
     flex: 1,
