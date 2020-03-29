@@ -6,7 +6,7 @@ import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from '../theme';
 import {
   RESET_PASSWORD_SCREEN,
   REGISTER_SCREEN,
-  DASHBOARD_SCREEN,
+  APP_STACK,
 } from '../constants';
 import commonStyles from './styles';
 
@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
 
     setLoading(true);
     login(email.value, password.value)
-      .then(() => navigation.navigate(DASHBOARD_SCREEN))
+      .then(() => navigation.navigate(APP_STACK))
       .catch(error => {
         setLoading(false);
         const { userInfo } = error;
