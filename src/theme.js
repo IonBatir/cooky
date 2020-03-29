@@ -11,6 +11,8 @@ export const COLOR = {
   BLACK: '#000',
   RED: '#ff0000',
   BACKGROUND: '#fff',
+  PRIMARY: '#4AD285',
+  GREY: 'rgba(11, 13, 15, 0.5)',
 };
 
 export const FONT_SIZE = {
