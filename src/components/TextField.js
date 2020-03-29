@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: FONT_FAMILY.REGULAR,
     fontSize: FONT_SIZE.MEDIUM,
-    color: 'rgba(11, 13, 15, 0.5)',
+    color: COLOR.GREY,
   },
   errorText: {
     fontFamily: FONT_FAMILY.LIGHT_ITALIC,
