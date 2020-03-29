@@ -59,22 +59,22 @@ export default function ResetPassword({ navigation }) {
         autoCapitalize="none"
       />
       <TouchableOpacity
-        style={styles.recoverButton}
+        style={styles.resetButton}
         onPress={handleResetPassword}>
-        <Text style={styles.recoverButtonText}>RESET PASSWORD</Text>
+        <Text style={styles.resetButtonText}>RESET PASSWORD</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  recoverButton: {
+  resetButton: {
     height: 52,
     justifyContent: 'center',
     backgroundColor: COLOR.PRIMARY,
     marginVertical: SPACING.LARGE,
   },
-  recoverButtonText: {
+  resetButtonText: {
     fontFamily: FONT_FAMILY.BOLD,
     fontSize: FONT_SIZE.MEDIUM,
     color: COLOR.WHITE,
