@@ -16,7 +16,7 @@ export default function Login({ navigation }) {
   const [password, setPassword] = useState({ value: '', error: null });
   const [loading, setLoading] = useState(false);
 
-  const onLogin = () => {
+  const handleLogin = () => {
     if (email.value.length === 0) {
       setEmail(state => ({ ...state, error: 'Please fill out this field' }));
       return;
@@ -68,7 +68,7 @@ export default function Login({ navigation }) {
         inputRef={passwordInput}
         onChangeText={text => setPassword(state => ({ ...state, value: text }))}
         onFocus={() => setPassword(state => ({ ...state, error: null }))}
-        onSubmitEditing={onLogin}
+        onSubmitEditing={handleLogin}
         value={password.value}
         error={password.error}
         placeholder="Password"
@@ -79,7 +79,7 @@ export default function Login({ navigation }) {
         onPress={() => navigation.navigate(RESET_PASSWORD_SCREEN)}>
         <Text style={styles.forgotButtonText}>Forgot?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginButton} onPress={onLogin}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>LOGIN</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate(REGISTER_SCREEN)}>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   loginButton: {
     height: 52,
     justifyContent: 'center',
-    backgroundColor: '#4AD285',
+    backgroundColor: COLOR.PRIMARY,
     marginVertical: SPACING.LARGE,
   },
   loginButtonText: {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   registerButtonText: {
     fontFamily: FONT_FAMILY.BOLD,
     fontSize: FONT_SIZE.MEDIUM,
-    color: 'rgba(11, 13, 15, 0.5)',
+    color: COLOR.GREY,
     textAlign: 'center',
   },
   forgotButtonText: {
