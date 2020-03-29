@@ -49,9 +49,9 @@ export default function Login({ navigation }) {
   ) : (
     <View style={commonStyles.container}>
       <Text style={commonStyles.title}>Welcome!</Text>
-      <Text style={commonStyles.subTitle}>Please login to your account.</Text>
+      <Text style={commonStyles.subTitle}>Please login to your profile.</Text>
       <TextField
-        style={styles.emailInput}
+        style={styles.textField}
         onChangeText={text => setEmail(state => ({ ...state, value: text }))}
         onFocus={() => setEmail(state => ({ ...state, error: null }))}
         onSubmitEditing={() => passwordInput.current.focus()}
@@ -90,7 +90,7 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  emailInput: {
+  textField: {
     marginBottom: SPACING.MEDIUM,
   },
   loginButton: {
