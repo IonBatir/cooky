@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler';
 import React, { useRef, useState, useEffect } from 'react';
-import auth from '@react-native-firebase/auth';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { onAuthStateChanged } from './src/api/auth';
 import { AuthStack, AppStack } from './src/navigation';
 import { Spinner } from './src/components';
 import { AUTH_STACK, APP_STACK } from './src/constants';
@@ -15,7 +15,7 @@ export default function App() {
 
   useEffect(
     () =>
-      auth().onAuthStateChanged(user => {
+      onAuthStateChanged(user => {
         if (loading) {
           setLoading(false);
         } else {
