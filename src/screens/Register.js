@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { register } from '../api/auth';
 import { Spinner, TextField, ErrorAlert } from '../components';
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from '../theme';
-import { DASHBOARD_SCREEN } from '../constants';
+import { APP_STACK } from '../constants';
 import commonStyles from './styles';
 
 export default function Register({ navigation }) {
@@ -36,7 +36,7 @@ export default function Register({ navigation }) {
 
     setLoading(true);
     register(email.value, password.value)
-      .then(() => navigation.navigate(DASHBOARD_SCREEN))
+      .then(() => navigation.navigate(APP_STACK))
       .catch(error => {
         setLoading(false);
         const { userInfo } = error;
@@ -82,6 +82,8 @@ export default function Register({ navigation }) {
         error={password.error}
         placeholder="Password"
         returnKeyType="next"
+        autoCompleteType="password"
+        textContentType="newPassword"
         secureTextEntry
       />
       <TextField
@@ -95,6 +97,8 @@ export default function Register({ navigation }) {
         error={confirmPassword.error}
         placeholder="Confirm Password"
         returnKeyType="go"
+        autoCompleteType="password"
+        textContentType="newPassword"
         secureTextEntry
       />
       <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
