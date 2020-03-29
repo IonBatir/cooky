@@ -8,7 +8,11 @@ const AppStack = createStackNavigator();
 export default function() {
   return (
     <AppStack.Navigator>
-      <AppStack.Screen name={DASHBOARD_SCREEN} component={Dashboard} />
+      <AppStack.Screen
+        name={DASHBOARD_SCREEN}
+        component={Dashboard}
+        options={{ headerShown: false }}
+      />
     </AppStack.Navigator>
   );
 }
