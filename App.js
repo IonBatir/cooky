@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useRef, useState, useEffect } from 'react';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { onAuthStateChanged } from './src/api/auth';
@@ -28,11 +29,17 @@ export default function App() {
   return loading ? (
     <Spinner />
   ) : (
-    <NavigationContainer ref={ref}>
-      <MainStack.Navigator mode="modal" headerMode="none">
-        <MainStack.Screen name={AUTH_STACK} component={AuthStack} />
-        <MainStack.Screen name={APP_STACK} component={AppStack} />
-      </MainStack.Navigator>
-    </NavigationContainer>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : null}>
+      <NavigationContainer ref={ref}>
+        <MainStack.Navigator mode="modal" headerMode="none">
+          <MainStack.Screen name={AUTH_STACK} component={AuthStack} />
+          <MainStack.Screen name={APP_STACK} component={AppStack} />
+        </MainStack.Navigator>
+      </NavigationContainer>
+    </KeyboardAvoidingView>
   );
 }
+
+const styles = StyleSheet.create({ container: { flex: 1 } });
