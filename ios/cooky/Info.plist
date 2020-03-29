@@ -38,7 +38,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -53,5 +53,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Chivo-Black.ttf</string>
+		<string>Chivo-BlackItalic.ttf</string>
+		<string>Chivo-Bold.ttf</string>
+		<string>Chivo-BoldItalic.ttf</string>
+		<string>Chivo-Italic.ttf</string>
+		<string>Chivo-Light.ttf</string>
+		<string>Chivo-LightItalic.ttf</string>
+		<string>Chivo-Regular.ttf</string>
+	</array>
 </dict>
 </plist>
