@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
-export default function Spinner() {
+export default function Spinner({ size = 'large' }) {
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" />
+      <ActivityIndicator size={size} />
     </View>
   );
 }
