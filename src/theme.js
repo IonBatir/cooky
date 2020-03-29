@@ -14,13 +14,16 @@ export const COLOR = {
 };
 
 export const FONT_SIZE = {
+  EXTRA_EXTRA_SMALL: 10,
+  EXTRA_SMALL: 14,
   SMALL: 16,
   MEDIUM: 18,
   LARGE: 20,
-  EXTRA_LARGE: 32,
+  EXTRA_LARGE: 24,
+  EXTRA_EXTRA_LARGE: 32,
 };
 
-export const FONT = {
+export const FONT_FAMILY = {
   BLACK: 'Chivo-Black',
   BLACK_ITALIC: 'Chivo-BlackItalic',
   BOLD: 'Chivo-Bold',
