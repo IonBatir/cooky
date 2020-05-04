@@ -7,10 +7,10 @@ export const SPACING = {
 };
 
 export const COLOR = {
-  WHITE: '#fff',
+  WHITE: '#FFF',
   BLACK: '#000',
-  RED: '#ff0000',
-  BACKGROUND: '#fff',
+  RED: '#FF0000',
+  BACKGROUND: '#FDFDFD',
   PRIMARY: '#4AD285',
   GREY: 'rgba(11, 13, 15, 0.5)',
 };
@@ -40,3 +40,5 @@ export const DEBUG = {
   borderWidth: 1,
   borderColor: COLOR.RED,
 };
+
+export const FOOD_ITEM_HEIGHT = 60;
