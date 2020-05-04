@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { register } from '../api/auth';
 import { Spinner, TextField, ErrorAlert } from '../components';
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from '../theme';
-import { APP_STACK } from '../constants';
+import { APP_NAVIGATOR } from '../constants';
 import commonStyles from './styles';
 
 export default function Register({ navigation }) {
@@ -36,7 +36,7 @@ export default function Register({ navigation }) {
 
     setLoading(true);
     register(email.value, password.value)
-      .then(() => navigation.navigate(APP_STACK))
+      .then(() => navigation.navigate(APP_NAVIGATOR))
       .catch(error => {
         setLoading(false);
         const { userInfo } = error;

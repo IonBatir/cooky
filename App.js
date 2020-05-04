@@ -4,9 +4,9 @@ import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { onAuthStateChanged } from './src/api/auth';
-import { AuthStack, AppStack } from './src/navigation';
+import { AuthStack, AppNavigator } from './src/navigation';
 import { Spinner } from './src/components';
-import { AUTH_STACK, APP_STACK } from './src/constants';
+import { AUTH_STACK, APP_NAVIGATOR } from './src/constants';
 
 const MainStack = createStackNavigator();
 
@@ -20,7 +20,7 @@ export default function App() {
         if (loading) {
           setLoading(false);
         } else {
-          ref.current?.navigate(user ? APP_STACK : AUTH_STACK);
+          ref.current?.navigate(user ? APP_NAVIGATOR : AUTH_STACK);
         }
       }),
     [loading],
@@ -35,7 +35,7 @@ export default function App() {
       <NavigationContainer ref={ref}>
         <MainStack.Navigator mode="modal" headerMode="none">
           <MainStack.Screen name={AUTH_STACK} component={AuthStack} />
-          <MainStack.Screen name={APP_STACK} component={AppStack} />
+          <MainStack.Screen name={APP_NAVIGATOR} component={AppNavigator} />
         </MainStack.Navigator>
       </NavigationContainer>
     </KeyboardAvoidingView>
