@@ -8,14 +8,31 @@ import {
   FOOD_ITEM_HEIGHT,
 } from '../theme';
 
-export default function FoodList({ name, date }) {
+const calculateMarkerColor = date => {
+  const now = new Date();
+  const diffTime = date - now;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  if (diffDays < 1) {
+    return '#D32F2F';
+  } else if (diffDays < 2) {
+    return '#FBC02D';
+  }
+  return '#388E3C';
+};
+
+export default function FoodList({ name, expiryDate }) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.date}>{date}</Text>
+        <Text style={styles.date}>{expiryDate?.toLocaleDateString()}</Text>
       </View>
-      <View style={[styles.marker, { backgroundColor: COLOR.GREY }]} />
+      <View
+        style={[
+          styles.marker,
+          { backgroundColor: calculateMarkerColor(expiryDate) },
+        ]}
+      />
     </View>
   );
 }
@@ -52,6 +69,5 @@ const styles = StyleSheet.create({
   marker: {
     width: 5,
     height: 30,
-    backgroundColor: '#F96060',
   },
 });
