@@ -3,10 +3,13 @@ import firestore from '@react-native-firebase/firestore';
 const foodCollection = firestore().collection('food');
 
 export const getFood = (successCallback, errorCallback) =>
-  foodCollection.onSnapshot(
+  foodCollection.orderBy('expiryDate', 'asc').onSnapshot(
     querySnapshot => {
       const food = [];
-      querySnapshot.forEach(doc => food.push({ id: doc.id, ...doc.data() }));
+      querySnapshot.forEach(doc => {
+        const { name, expiryDate } = doc.data();
+        food.push({ id: doc.id, name, expiryDate: expiryDate.toDate() });
+      });
       successCallback(food);
     },
     error => errorCallback(error),
