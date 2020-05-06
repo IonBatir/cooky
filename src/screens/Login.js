@@ -116,5 +116,6 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.MEDIUM,
     color: '#0052FF',
     textAlign: 'right',
+    marginTop: SPACING.SMALL,
   },
 });
