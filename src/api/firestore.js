@@ -1,23 +1,29 @@
 import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const foodCollection = firestore().collection('food');
+const uid = auth().currentUser.uid;
 
 export const getFood = (successCallback, errorCallback) =>
-  foodCollection.orderBy('expiryDate', 'asc').onSnapshot(
-    querySnapshot => {
-      const food = [];
-      querySnapshot.forEach(doc => {
-        const { name, expiryDate } = doc.data();
-        food.push({ id: doc.id, name, expiryDate: expiryDate.toDate() });
-      });
-      successCallback(food);
-    },
-    error => errorCallback(error),
-  );
+  foodCollection
+    .where('uid', '==', uid)
+    .orderBy('expiryDate', 'asc')
+    .onSnapshot(
+      querySnapshot => {
+        const food = [];
+        querySnapshot.forEach(doc => {
+          const { name, expiryDate } = doc.data();
+          food.push({ id: doc.id, name, expiryDate: expiryDate.toDate() });
+        });
+        successCallback(food);
+      },
+      error => errorCallback(error),
+    );
 
 export const addFood = (name, expiryDate) =>
   foodCollection.add({
     name,
+    uid,
     expiryDate: firestore.Timestamp.fromDate(expiryDate),
   });
 
