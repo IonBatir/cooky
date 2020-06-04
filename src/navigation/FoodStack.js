@@ -1,7 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { FoodList, AddFood } from '../screens';
-import { FOOD_LIST_SCREEN, ADD_FOOD_SCREEN } from '../constants';
+import { FoodList, AddFood, ScanFood } from '../screens';
+import {
+  FOOD_LIST_SCREEN,
+  ADD_FOOD_SCREEN,
+  SCAN_FOOD_SCREEN,
+} from '../constants';
 
 const FoodStack = createStackNavigator();
 
@@ -17,6 +21,11 @@ export default function() {
         name={ADD_FOOD_SCREEN}
         component={AddFood}
         options={{ title: 'Add Food' }}
+      />
+      <FoodStack.Screen
+        name={SCAN_FOOD_SCREEN}
+        component={ScanFood}
+        options={{ title: 'Scan Food' }}
       />
     </FoodStack.Navigator>
   );
