@@ -64,5 +64,7 @@
 		<string>Chivo-LightItalic.ttf</string>
 		<string>Chivo-Regular.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Use camera for barcode read</string>
 </dict>
 </plist>
