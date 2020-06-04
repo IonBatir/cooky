@@ -13,6 +13,7 @@ export const COLOR = {
   BACKGROUND: '#FDFDFD',
   PRIMARY: '#4AD285',
   GREY: 'rgba(11, 13, 15, 0.5)',
+  TRANSPARENT: 'rgba(255, 255, 255, 0)',
 };
 
 export const FONT_SIZE = {
