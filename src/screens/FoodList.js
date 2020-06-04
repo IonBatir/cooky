@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import ActionButton from 'react-native-action-button';
 import { getFood } from '../api/firestore';
 import { FoodItem, ErrorAlert, Spinner } from '../components';
 import {
@@ -15,7 +10,7 @@ import {
   SPACING,
   FOOD_ITEM_HEIGHT,
 } from '../theme';
-import { ADD_FOOD_SCREEN } from '../constants';
+import { ADD_FOOD_SCREEN, SCAN_FOOD_SCREEN } from '../constants';
 import commonStyles from './styles';
 
 export default function FoodList({ navigation }) {
@@ -38,12 +33,18 @@ export default function FoodList({ navigation }) {
   );
 
   const FAB = () => (
-    <TouchableOpacity onPress={() => navigation.navigate(ADD_FOOD_SCREEN)}>
-      <View style={styles.addButton}>
-        <View style={styles.addButtonHorizontalLine} />
-        <View style={styles.addButtonVerticalLine} />
-      </View>
-    </TouchableOpacity>
+    <ActionButton buttonColor={COLOR.PRIMARY}>
+      <ActionButton.Item
+        title="Add Food"
+        onPress={() => navigation.navigate(ADD_FOOD_SCREEN)}>
+        <Text style={styles.textIcon}>✎</Text>
+      </ActionButton.Item>
+      <ActionButton.Item
+        title="Scan Food"
+        onPress={() => navigation.navigate(SCAN_FOOD_SCREEN)}>
+        <Text style={styles.textIcon}>＝</Text>
+      </ActionButton.Item>
+    </ActionButton>
   );
 
   if (food.loading) {
@@ -99,26 +100,5 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: SPACING.MEDIUM,
   },
-  addButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    bottom: SPACING.LARGE,
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: COLOR.PRIMARY,
-  },
-  addButtonHorizontalLine: {
-    position: 'absolute',
-    width: 40,
-    height: 2,
-    backgroundColor: COLOR.WHITE,
-  },
-  addButtonVerticalLine: {
-    position: 'absolute',
-    width: 2,
-    height: 40,
-    backgroundColor: COLOR.WHITE,
-  },
+  textIcon: { color: COLOR.WHITE, fontSize: FONT_SIZE.EXTRA_EXTRA_LARGE },
 });
