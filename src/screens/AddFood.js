@@ -36,8 +36,6 @@ export default function AddFood({ navigation }) {
       });
   };
 
-  console.log(showDatePicker);
-
   return loading ? (
     <Spinner />
   ) : (

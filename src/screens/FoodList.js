@@ -26,7 +26,6 @@ export default function FoodList({ navigation }) {
       getFood(
         data => setFood({ data, loading: false }),
         error => {
-          console.log(error.userInfo?.message);
           ErrorAlert(error.userInfo?.message);
           setFood({ data: [], loading: false });
         },
