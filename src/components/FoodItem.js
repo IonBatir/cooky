@@ -1,5 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Swipeout from 'react-native-swipeout';
+import { ErrorAlert } from '../components';
+import { deleteFood } from '../api/firestore';
 import {
   COLOR,
   FONT_FAMILY,
@@ -20,20 +23,35 @@ const calculateMarkerColor = date => {
   return '#388E3C';
 };
 
-export default function FoodList({ name, expiryDate }) {
+export default function FoodList({ id, name, expiryDate }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.date}>{expiryDate?.toLocaleDateString()}</Text>
+    <Swipeout
+      autoClose
+      backgroundColor={COLOR.WHITE}
+      right={[
+        {
+          text: 'Delete',
+          backgroundColor: COLOR.RED,
+          type: 'delete',
+          onPress: () =>
+            deleteFood(id).catch(error => {
+              ErrorAlert(error.userInfo?.message);
+            }),
+        },
+      ]}>
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.date}>{expiryDate?.toLocaleDateString()}</Text>
+        </View>
+        <View
+          style={[
+            styles.marker,
+            { backgroundColor: calculateMarkerColor(expiryDate) },
+          ]}
+        />
       </View>
-      <View
-        style={[
-          styles.marker,
-          { backgroundColor: calculateMarkerColor(expiryDate) },
-        ]}
-      />
-    </View>
+    </Swipeout>
   );
 }
 

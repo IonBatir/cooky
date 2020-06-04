@@ -29,7 +29,7 @@ export default function FoodList({ navigation }) {
   );
 
   const renderItem = ({ item }) => (
-    <FoodItem name={item.name} expiryDate={item.expiryDate} />
+    <FoodItem id={item.id} name={item.name} expiryDate={item.expiryDate} />
   );
 
   const FAB = () => (
