@@ -2,9 +2,12 @@ import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
 const foodCollection = firestore().collection('food');
-const uid = auth().currentUser.uid;
+const uid = auth().currentUser?.uid;
 
-export const getFood = (successCallback, errorCallback) =>
+export const getFood = (
+  successCallback,
+  errorCallback = error => console.error(error),
+) =>
   foodCollection
     .where('uid', '==', uid)
     .orderBy('expiryDate', 'asc')
