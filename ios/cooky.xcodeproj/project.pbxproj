@@ -14,24 +14,21 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		192D55B000CF22FC2F5748C1 /* libPods-cooky.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FEEDAA33E0151267103BF4 /* libPods-cooky.a */; };
+		2793D56E0E694823991EA4DE /* Chivo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFFBFD1A6E6D4D8BB1F98C50 /* Chivo-Black.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* cookyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* cookyTests.m */; };
-		5EE610B6895F019830616651 /* libPods-cooky-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5017F35765A48309723F4A2 /* libPods-cooky-tvOS.a */; };
-		D1C5EFD624182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1C5EFD524182BFA00C2D0D1 /* GoogleService-Info.plist */; };
-		D1C5EFD724182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1C5EFD524182BFA00C2D0D1 /* GoogleService-Info.plist */; };
-		D1C5EFD824182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1C5EFD524182BFA00C2D0D1 /* GoogleService-Info.plist */; };
-		D1C5EFD924182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1C5EFD524182BFA00C2D0D1 /* GoogleService-Info.plist */; };
-		E8DABF5CF2500E5DC4A860EB /* libPods-cooky-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9094DE600A2970B57E3B887 /* libPods-cooky-tvOSTests.a */; };
-		2793D56E0E694823991EA4DE /* Chivo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFFBFD1A6E6D4D8BB1F98C50 /* Chivo-Black.ttf */; };
-		9E48AC0CB90B4F14958BB285 /* Chivo-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA726A85BFFC4D259D975093 /* Chivo-BlackItalic.ttf */; };
 		4B0698FA0BE5428B823AB708 /* Chivo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81E454566FBD4BB9BFA2B9D3 /* Chivo-Bold.ttf */; };
-		778F08D57B954522820C93B1 /* Chivo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5AE9D5D8A94CBCA1A48229 /* Chivo-BoldItalic.ttf */; };
-		694451878A9D425592DBF801 /* Chivo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F90FDC8CDCF43879AB8338F /* Chivo-Italic.ttf */; };
-		C54575B27F294AC2ADF12E4C /* Chivo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24191A01DCC0452D993A6F21 /* Chivo-Light.ttf */; };
-		AFA2CF3F2E70454DAFD5DAF6 /* Chivo-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5619CC5A880D4AD391836E69 /* Chivo-LightItalic.ttf */; };
+		5EE610B6895F019830616651 /* libPods-cooky-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5017F35765A48309723F4A2 /* libPods-cooky-tvOS.a */; };
 		6482E1974BB94EC3A84EB6EB /* Chivo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BF9D5AAAAE14E6BB76728F0 /* Chivo-Regular.ttf */; };
+		694451878A9D425592DBF801 /* Chivo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F90FDC8CDCF43879AB8338F /* Chivo-Italic.ttf */; };
+		778F08D57B954522820C93B1 /* Chivo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5AE9D5D8A94CBCA1A48229 /* Chivo-BoldItalic.ttf */; };
+		9E48AC0CB90B4F14958BB285 /* Chivo-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA726A85BFFC4D259D975093 /* Chivo-BlackItalic.ttf */; };
+		AFA2CF3F2E70454DAFD5DAF6 /* Chivo-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5619CC5A880D4AD391836E69 /* Chivo-LightItalic.ttf */; };
+		C54575B27F294AC2ADF12E4C /* Chivo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24191A01DCC0452D993A6F21 /* Chivo-Light.ttf */; };
+		D1A04E7224E84E92006962E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1A04E7124E84E92006962E1 /* GoogleService-Info.plist */; };
+		E8DABF5CF2500E5DC4A860EB /* libPods-cooky-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9094DE600A2970B57E3B887 /* libPods-cooky-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +54,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* cookyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cookyTests.m; sourceTree = "<group>"; };
 		0A86E9FFDDDE0C11214AB09F /* Pods-cooky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cooky.release.xcconfig"; path = "Target Support Files/Pods-cooky/Pods-cooky.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* cooky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cooky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Cooky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = cooky/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = cooky/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -65,29 +62,29 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = cooky/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = cooky/main.m; sourceTree = "<group>"; };
 		23E295755884C66914E46DDB /* Pods-cooky-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cooky-tvOS.release.xcconfig"; path = "Target Support Files/Pods-cooky-tvOS/Pods-cooky-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		24191A01DCC0452D993A6F21 /* Chivo-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-Light.ttf"; path = "../assets/fonts/Chivo-Light.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* cooky-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cooky-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* cooky-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cooky-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6348E75F6D235D0C30640F /* libPods-cookyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cookyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5619CC5A880D4AD391836E69 /* Chivo-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-LightItalic.ttf"; path = "../assets/fonts/Chivo-LightItalic.ttf"; sourceTree = "<group>"; };
 		57304A174CE131B485A5AA17 /* Pods-cooky-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cooky-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-cooky-tvOSTests/Pods-cooky-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F90FDC8CDCF43879AB8338F /* Chivo-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-Italic.ttf"; path = "../assets/fonts/Chivo-Italic.ttf"; sourceTree = "<group>"; };
+		6BF9D5AAAAE14E6BB76728F0 /* Chivo-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-Regular.ttf"; path = "../assets/fonts/Chivo-Regular.ttf"; sourceTree = "<group>"; };
+		81E454566FBD4BB9BFA2B9D3 /* Chivo-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-Bold.ttf"; path = "../assets/fonts/Chivo-Bold.ttf"; sourceTree = "<group>"; };
 		99BD9062EC1735CB5EC4F294 /* Pods-cooky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cooky.debug.xcconfig"; path = "Target Support Files/Pods-cooky/Pods-cooky.debug.xcconfig"; sourceTree = "<group>"; };
 		A2E0150061CA5920C4ADE70C /* Pods-cookyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cookyTests.debug.xcconfig"; path = "Target Support Files/Pods-cookyTests/Pods-cookyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3899FF30FCFFE62CCB284B8 /* Pods-cookyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cookyTests.release.xcconfig"; path = "Target Support Files/Pods-cookyTests/Pods-cookyTests.release.xcconfig"; sourceTree = "<group>"; };
 		A9BD36581CDFE66CB88710A2 /* Pods-cooky-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cooky-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-cooky-tvOS/Pods-cooky-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C9094DE600A2970B57E3B887 /* libPods-cooky-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cooky-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1C5EFD524182BFA00C2D0D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CA726A85BFFC4D259D975093 /* Chivo-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-BlackItalic.ttf"; path = "../assets/fonts/Chivo-BlackItalic.ttf"; sourceTree = "<group>"; };
+		D1A04E7124E84E92006962E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA5AE9D5D8A94CBCA1A48229 /* Chivo-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-BoldItalic.ttf"; path = "../assets/fonts/Chivo-BoldItalic.ttf"; sourceTree = "<group>"; };
+		DFFBFD1A6E6D4D8BB1F98C50 /* Chivo-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Chivo-Black.ttf"; path = "../assets/fonts/Chivo-Black.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F3FEEDAA33E0151267103BF4 /* libPods-cooky.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cooky.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5017F35765A48309723F4A2 /* libPods-cooky-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cooky-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF4BFE98BC557E042C9CB248 /* Pods-cooky-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cooky-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-cooky-tvOSTests/Pods-cooky-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DFFBFD1A6E6D4D8BB1F98C50 /* Chivo-Black.ttf */ = {isa = PBXFileReference; name = "Chivo-Black.ttf"; path = "../assets/fonts/Chivo-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CA726A85BFFC4D259D975093 /* Chivo-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Chivo-BlackItalic.ttf"; path = "../assets/fonts/Chivo-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		81E454566FBD4BB9BFA2B9D3 /* Chivo-Bold.ttf */ = {isa = PBXFileReference; name = "Chivo-Bold.ttf"; path = "../assets/fonts/Chivo-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DA5AE9D5D8A94CBCA1A48229 /* Chivo-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Chivo-BoldItalic.ttf"; path = "../assets/fonts/Chivo-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5F90FDC8CDCF43879AB8338F /* Chivo-Italic.ttf */ = {isa = PBXFileReference; name = "Chivo-Italic.ttf"; path = "../assets/fonts/Chivo-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		24191A01DCC0452D993A6F21 /* Chivo-Light.ttf */ = {isa = PBXFileReference; name = "Chivo-Light.ttf"; path = "../assets/fonts/Chivo-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5619CC5A880D4AD391836E69 /* Chivo-LightItalic.ttf */ = {isa = PBXFileReference; name = "Chivo-LightItalic.ttf"; path = "../assets/fonts/Chivo-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6BF9D5AAAAE14E6BB76728F0 /* Chivo-Regular.ttf */ = {isa = PBXFileReference; name = "Chivo-Regular.ttf"; path = "../assets/fonts/Chivo-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +150,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				D1C5EFD524182BFA00C2D0D1 /* GoogleService-Info.plist */,
+				D1A04E7124E84E92006962E1 /* GoogleService-Info.plist */,
 			);
 			name = cooky;
 			sourceTree = "<group>";
@@ -212,7 +209,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* cooky.app */,
+				13B07F961A680F5B00A75B9A /* Cooky.app */,
 				00E356EE1AD99517003FC87E /* cookyTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* cooky-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* cooky-tvOSTests.xctest */,
@@ -221,7 +218,7 @@
 			sourceTree = "<group>";
 		};
 		D3B0D7E643074FAF8836834C /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				DFFBFD1A6E6D4D8BB1F98C50 /* Chivo-Black.ttf */,
 				CA726A85BFFC4D259D975093 /* Chivo-BlackItalic.ttf */,
@@ -234,7 +231,6 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -277,7 +273,7 @@
 			);
 			name = cooky;
 			productName = cooky;
-			productReference = 13B07F961A680F5B00A75B9A /* cooky.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Cooky.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* cooky-tvOS */ = {
@@ -373,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1C5EFD724182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,13 +378,13 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				D1C5EFD624182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */,
 				2793D56E0E694823991EA4DE /* Chivo-Black.ttf in Resources */,
 				9E48AC0CB90B4F14958BB285 /* Chivo-BlackItalic.ttf in Resources */,
 				4B0698FA0BE5428B823AB708 /* Chivo-Bold.ttf in Resources */,
 				778F08D57B954522820C93B1 /* Chivo-BoldItalic.ttf in Resources */,
 				694451878A9D425592DBF801 /* Chivo-Italic.ttf in Resources */,
 				C54575B27F294AC2ADF12E4C /* Chivo-Light.ttf in Resources */,
+				D1A04E7224E84E92006962E1 /* GoogleService-Info.plist in Resources */,
 				AFA2CF3F2E70454DAFD5DAF6 /* Chivo-LightItalic.ttf in Resources */,
 				6482E1974BB94EC3A84EB6EB /* Chivo-Regular.ttf in Resources */,
 			);
@@ -400,7 +395,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
-				D1C5EFD824182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +402,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1C5EFD924182BFA00C2D0D1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,7 +714,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ionbatir.cooky;
-				PRODUCT_NAME = cooky;
+				PRODUCT_NAME = Cooky;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -741,7 +734,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ionbatir.cooky;
-				PRODUCT_NAME = cooky;
+				PRODUCT_NAME = Cooky;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

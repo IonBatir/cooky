@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>cooky</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -37,8 +39,21 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Cooky use camera to scan barcode</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Chivo-Black.ttf</string>
+		<string>Chivo-BlackItalic.ttf</string>
+		<string>Chivo-Bold.ttf</string>
+		<string>Chivo-BoldItalic.ttf</string>
+		<string>Chivo-Italic.ttf</string>
+		<string>Chivo-Light.ttf</string>
+		<string>Chivo-LightItalic.ttf</string>
+		<string>Chivo-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -53,18 +68,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Chivo-Black.ttf</string>
-		<string>Chivo-BlackItalic.ttf</string>
-		<string>Chivo-Bold.ttf</string>
-		<string>Chivo-BoldItalic.ttf</string>
-		<string>Chivo-Italic.ttf</string>
-		<string>Chivo-Light.ttf</string>
-		<string>Chivo-LightItalic.ttf</string>
-		<string>Chivo-Regular.ttf</string>
-	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Use camera for barcode read</string>
 </dict>
 </plist>
