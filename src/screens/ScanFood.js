@@ -1,16 +1,41 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { FONT_FAMILY, FONT_SIZE, SPACING, COLOR } from '../theme';
+import {
+  Dimensions,
+  SafeAreaView,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
+import { FONT_FAMILY, FONT_SIZE, SPACING, COLOR, DEBUG } from '../theme';
 
-export default function ScanFood() {
+const PLACEHOLDER_WIDTH = Dimensions.get('screen').width - 2 * SPACING.MEDIUM;
+
+export default function ScanFood({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.scanText}>Scan BarCode</Text>
-      <View style={styles.square} />
-      <View style={styles.button}>
-        <Text style={styles.buttonText}>SCAN</Text>
+      <View style={styles.placeholder}>
+        <View style={[styles.square, styles.leftTopBorder]} />
+        <View style={[styles.square, styles.rightTopBorder]} />
+        <View style={[styles.square, styles.leftBottomBorder]} />
+        <View style={[styles.square, styles.rightBottomBorder]} />
       </View>
-    </View>
+
+      <View style={styles.bottom}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            console.log('Scan');
+          }}
+        />
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}>
+          <Text style={styles.backButtonText}>Back</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -18,34 +43,68 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center',
     backgroundColor: COLOR.BLACK,
   },
   scanText: {
-    alignSelf: 'center',
     fontFamily: FONT_FAMILY.ITALIC,
     fontSize: FONT_SIZE.EXTRA_LARGE,
     color: COLOR.WHITE,
-    marginTop: SPACING.EXTRA_LARGE,
+    alignSelf: 'center',
+  },
+  placeholder: {
+    alignSelf: 'center',
+    width: PLACEHOLDER_WIDTH,
+    height: PLACEHOLDER_WIDTH / 1.5,
+    marginHorizontal: SPACING.MEDIUM,
+    backgroundColor: 'transparent',
   },
   square: {
-    width: 300,
-    height: 150,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    position: 'absolute',
+    width: 50,
+    height: 50,
     borderColor: COLOR.WHITE,
-    borderWidth: 5,
+  },
+  leftTopBorder: {
+    left: 0,
+    top: 0,
+    borderLeftWidth: 3,
+    borderTopWidth: 3,
+  },
+  rightTopBorder: {
+    right: 0,
+    top: 0,
+    borderRightWidth: 3,
+    borderTopWidth: 3,
+  },
+  leftBottomBorder: {
+    left: 0,
+    bottom: 0,
+    borderLeftWidth: 3,
+    borderBottomWidth: 3,
+  },
+  rightBottomBorder: {
+    right: 0,
+    bottom: 0,
+    borderRightWidth: 3,
+    borderBottomWidth: 3,
+  },
+  bottom: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
-    width: 100,
-    height: 50,
-    justifyContent: 'center',
-    backgroundColor: COLOR.WHITE,
-    marginBottom: SPACING.EXTRA_LARGE,
-    borderRadius: 25,
+    width: 80,
+    height: 80,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 40,
+    borderWidth: 5,
+    borderColor: COLOR.WHITE,
   },
-  buttonText: {
-    textAlign: 'center',
-    fontFamily: FONT_FAMILY.BOLD,
-    fontSize: FONT_SIZE.MEDIUM,
+  backButton: { position: 'absolute', right: SPACING.LARGE },
+  backButtonText: {
+    fontFamily: FONT_FAMILY.LIGHT,
+    fontSize: FONT_SIZE.EXTRA_LARGE,
+    color: COLOR.WHITE,
   },
 });
