@@ -25,7 +25,7 @@ export default function() {
       <FoodStack.Screen
         name={SCAN_FOOD_SCREEN}
         component={ScanFood}
-        options={{ title: 'Scan Food' }}
+        options={{ title: 'Scan Food', headerShown: false }}
       />
     </FoodStack.Navigator>
   );
