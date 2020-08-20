@@ -41,6 +41,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Cooky use camera to scan barcode</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Cooky use microphone to scan barcode</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>

@@ -1,62 +1,89 @@
 import React from 'react';
 import {
   Dimensions,
-  SafeAreaView,
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { FONT_FAMILY, FONT_SIZE, SPACING, COLOR, DEBUG } from '../theme';
+import { RNCamera } from 'react-native-camera';
+import { FONT_FAMILY, FONT_SIZE, SPACING, COLOR } from '../theme';
 
 const PLACEHOLDER_WIDTH = Dimensions.get('screen').width - 2 * SPACING.MEDIUM;
 
-export default function ScanFood({ navigation }) {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.scanText}>Scan BarCode</Text>
-      <View style={styles.placeholder}>
-        <View style={[styles.square, styles.leftTopBorder]} />
-        <View style={[styles.square, styles.rightTopBorder]} />
-        <View style={[styles.square, styles.leftBottomBorder]} />
-        <View style={[styles.square, styles.rightBottomBorder]} />
-      </View>
+const BORDER_WIDTH = 5;
 
-      <View style={styles.bottom}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            console.log('Scan');
-          }}
-        />
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}>
-          <Text style={styles.backButtonText}>Back</Text>
-        </TouchableOpacity>
+export default function ScanFood({ navigation }) {
+  const [loading, setLoading] = React.useState(false);
+
+  const squareStyle = StyleSheet.flatten([
+    styles.square,
+    { borderColor: loading ? COLOR.PRIMARY : COLOR.WHITE },
+  ]);
+
+  return (
+    <View style={styles.container}>
+      <RNCamera
+        style={styles.container}
+        type={RNCamera.Constants.Type.back}
+        flashMode={RNCamera.Constants.FlashMode.on}
+        androidCameraPermissionOptions={{
+          title: 'Permission to use camera',
+          message: 'We need your permission to use your camera',
+          buttonPositive: 'Ok',
+          buttonNegative: 'Cancel',
+        }}
+        onGoogleVisionBarcodesDetected={({ barcodes }) => {
+          if (barcodes.length) setLoading(true);
+          console.log(barcodes);
+        }}
+      />
+      <View style={styles.overlay}>
+        <View style={styles.overlayView}>
+          <Text style={styles.scanText}>Scan BarCode</Text>
+          <View style={styles.placeholder}>
+            <View style={[squareStyle, styles.leftTopBorder]} />
+            <View style={[squareStyle, styles.rightTopBorder]} />
+            <View style={[squareStyle, styles.leftBottomBorder]} />
+            <View style={[squareStyle, styles.rightBottomBorder]} />
+          </View>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}>
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    backgroundColor: COLOR.BLACK,
+  },
+  overlay: {
+    position: 'absolute',
+    height: '100%',
+  },
+  overlayView: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   scanText: {
     fontFamily: FONT_FAMILY.ITALIC,
     fontSize: FONT_SIZE.EXTRA_LARGE,
     color: COLOR.WHITE,
     alignSelf: 'center',
+    marginBottom: SPACING.EXTRA_LARGE,
   },
   placeholder: {
     alignSelf: 'center',
     width: PLACEHOLDER_WIDTH,
     height: PLACEHOLDER_WIDTH / 1.5,
     marginHorizontal: SPACING.MEDIUM,
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
   square: {
     position: 'absolute',
@@ -67,41 +94,32 @@ const styles = StyleSheet.create({
   leftTopBorder: {
     left: 0,
     top: 0,
-    borderLeftWidth: 3,
-    borderTopWidth: 3,
+    borderLeftWidth: BORDER_WIDTH,
+    borderTopWidth: BORDER_WIDTH,
   },
   rightTopBorder: {
     right: 0,
     top: 0,
-    borderRightWidth: 3,
-    borderTopWidth: 3,
+    borderRightWidth: BORDER_WIDTH,
+    borderTopWidth: BORDER_WIDTH,
   },
   leftBottomBorder: {
     left: 0,
     bottom: 0,
-    borderLeftWidth: 3,
-    borderBottomWidth: 3,
+    borderLeftWidth: BORDER_WIDTH,
+    borderBottomWidth: BORDER_WIDTH,
   },
   rightBottomBorder: {
     right: 0,
     bottom: 0,
-    borderRightWidth: 3,
-    borderBottomWidth: 3,
+    borderRightWidth: BORDER_WIDTH,
+    borderBottomWidth: BORDER_WIDTH,
   },
-  bottom: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+  backButton: {
+    position: 'absolute',
+    right: SPACING.EXTRA_LARGE,
+    bottom: 50,
   },
-  button: {
-    width: 80,
-    height: 80,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    borderRadius: 40,
-    borderWidth: 5,
-    borderColor: COLOR.WHITE,
-  },
-  backButton: { position: 'absolute', right: SPACING.LARGE },
   backButtonText: {
     fontFamily: FONT_FAMILY.LIGHT,
     fontSize: FONT_SIZE.EXTRA_LARGE,
