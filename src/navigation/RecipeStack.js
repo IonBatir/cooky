@@ -13,7 +13,11 @@ export default function() {
         component={RecipeList}
         options={{ headerShown: false }}
       />
-      <RecipeStack.Screen name={RECIPE_SCREEN} component={Recipe} />
+      <RecipeStack.Screen
+        name={RECIPE_SCREEN}
+        component={Recipe}
+        options={({ route }) => ({ title: route.params.name })}
+      />
     </RecipeStack.Navigator>
   );
 }

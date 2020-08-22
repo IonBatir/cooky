@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import {
   COLOR,
   FONT_FAMILY,
@@ -8,13 +8,15 @@ import {
   FOOD_ITEM_HEIGHT,
 } from '../theme';
 
-export default function FoodList({ id, name }) {
+export default function FoodList({ name, handlePress }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.name}>{name}</Text>
+    <TouchableOpacity onPress={handlePress}>
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <Text style={styles.name}>{name}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

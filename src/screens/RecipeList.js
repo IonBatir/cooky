@@ -3,9 +3,10 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { getRecipes } from '../api/firestore';
 import { ErrorAlert, RecipeItem, Spinner, Header } from '../components';
 import { RECIPE_ITEM_HEIGHT, SPACING, COLOR } from '../theme';
+import { RECIPE_SCREEN } from '../constants';
 import commonStyles from './styles';
 
-export default function RecipeList() {
+export default function RecipeList({ navigation }) {
   const [recipes, setRecipes] = useState({ data: [], loading: true });
 
   useEffect(
@@ -20,7 +21,12 @@ export default function RecipeList() {
     [],
   );
 
-  const renderItem = ({ item }) => <RecipeItem id={item.id} name={item.name} />;
+  const renderItem = ({ item }) => (
+    <RecipeItem
+      name={item.name}
+      handlePress={() => navigation.navigate(RECIPE_SCREEN, { ...item })}
+    />
+  );
 
   if (recipes.loading) {
     return <Spinner />;
