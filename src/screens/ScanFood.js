@@ -7,20 +7,65 @@ import {
   StyleSheet,
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
+import { ErrorAlert, Spinner } from '../components';
 import { FONT_FAMILY, FONT_SIZE, SPACING, COLOR } from '../theme';
+import { getBarcode } from '../api/firestore';
+import { ADD_FOOD_SCREEN } from '../constants';
 
 const PLACEHOLDER_WIDTH = Dimensions.get('screen').width - 2 * SPACING.MEDIUM;
 
 const BORDER_WIDTH = 5;
 
+const STATUS = { PREVIEW: 'PREVIEW', DETECTED: 'DETECTED', ERROR: 'ERROR' };
+
+const getBorderColor = status => {
+  switch (status) {
+    case STATUS.PREVIEW:
+      return COLOR.WHITE;
+    case STATUS.DETECTED:
+      return COLOR.PRIMARY;
+    case STATUS.ERROR:
+      return COLOR.RED;
+    default:
+      return COLOR.WHITE;
+  }
+};
+
 export default function ScanFood({ navigation }) {
   const camera = useRef();
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(STATUS.PREVIEW);
 
   const squareStyle = StyleSheet.flatten([
     styles.square,
-    { borderColor: loading ? COLOR.PRIMARY : COLOR.WHITE },
+    { borderColor: getBorderColor(status) },
   ]);
+
+  const handleBardCodeDetected = ({ barcodes }) => {
+    const barcode = barcodes[0]?.data;
+    if (barcode && status === STATUS.PREVIEW) {
+      setStatus(STATUS.DETECTED);
+      camera.current.pausePreview();
+      getBarcode(barcode)
+        .then(({ name }) => {
+          setStatus(status.PREVIEW);
+          camera.current.resumePreview();
+          navigation.navigate(ADD_FOOD_SCREEN, { name });
+        })
+        .catch(error => {
+          setStatus(STATUS.ERROR);
+          ErrorAlert(
+            error.userInfo?.message,
+            () => {
+              setStatus(STATUS.PREVIEW);
+              camera.current.resumePreview();
+            },
+            () => {
+              navigation.goBack();
+            },
+          );
+        });
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -36,10 +81,7 @@ export default function ScanFood({ navigation }) {
           buttonPositive: 'Ok',
           buttonNegative: 'Cancel',
         }}
-        onGoogleVisionBarcodesDetected={({ barcodes }) => {
-          if (barcodes.length) setLoading(true);
-          console.log(barcodes);
-        }}
+        onGoogleVisionBarcodesDetected={handleBardCodeDetected}
       />
       <View style={styles.overlay}>
         <View style={styles.overlayView}>
@@ -57,6 +99,11 @@ export default function ScanFood({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
+      {status === STATUS.DETECTED && (
+        <View style={styles.overlay}>
+          <Spinner />
+        </View>
+      )}
     </View>
   );
 }
@@ -67,12 +114,12 @@ const styles = StyleSheet.create({
   },
   overlay: {
     position: 'absolute',
+    width: '100%',
     height: '100%',
   },
   overlayView: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   scanText: {
     fontFamily: FONT_FAMILY.ITALIC,
@@ -86,7 +133,6 @@ const styles = StyleSheet.create({
     width: PLACEHOLDER_WIDTH,
     height: PLACEHOLDER_WIDTH / 1.5,
     marginHorizontal: SPACING.MEDIUM,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
   square: {
     position: 'absolute',

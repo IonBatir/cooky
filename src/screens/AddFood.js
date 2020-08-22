@@ -9,9 +9,12 @@ import { FOOD_LIST_SCREEN } from '../constants';
 import { isAndroid, isIOS } from '../utils';
 import commonStyles from './styles';
 
-export default function AddFood({ navigation }) {
+export default function AddFood({ navigation, route }) {
   const nameInput = useRef(null);
-  const [name, setName] = useState({ value: '', error: null });
+  const [name, setName] = useState({
+    value: route.params?.name || '',
+    error: null,
+  });
   const [expiryDate, setExpiryDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [loading, setLoading] = useState(false);
