@@ -3,6 +3,7 @@ import auth from '@react-native-firebase/auth';
 
 const foodCollection = firestore().collection('food');
 const barcodeCollection = firestore().collection('barcode');
+const recipeCollection = firestore().collection('recipe');
 
 const getUid = () => auth().currentUser?.uid;
 
@@ -48,3 +49,19 @@ export const getBarcode = id =>
         ? Promise.resolve(doc.data())
         : Promise.reject({ userInfo: { message: 'No such barcode!' } }),
     );
+
+export const getRecipes = (
+  successCallback,
+  errorCallback = error => console.error(error),
+) =>
+  recipeCollection.onSnapshot(
+    querySnapshot => {
+      const recipes = [];
+      querySnapshot.forEach(doc => {
+        const { name, ingredients, algorithm } = doc.data();
+        recipes.push({ id: doc.id, name, ingredients, algorithm });
+      });
+      successCallback(recipes);
+    },
+    error => errorCallback(error),
+  );

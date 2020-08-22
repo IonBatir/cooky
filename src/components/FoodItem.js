@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 3,
   },
-  content: { marginLeft: SPACING.MEDIUM },
+  content: { marginHorizontal: SPACING.MEDIUM },
   name: {
     fontFamily: FONT_FAMILY.REGULAR,
     fontSize: FONT_SIZE.MEDIUM,

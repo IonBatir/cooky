@@ -43,3 +43,5 @@ export const DEBUG = {
 };
 
 export const FOOD_ITEM_HEIGHT = 60;
+
+export const RECIPE_ITEM_HEIGHT = 60;
