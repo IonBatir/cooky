@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleGetInfoString</key>
+	<string/>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -41,8 +43,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Cooky use camera to scan barcode</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Chivo-Black.ttf</string>
@@ -53,6 +53,7 @@
 		<string>Chivo-Light.ttf</string>
 		<string>Chivo-LightItalic.ttf</string>
 		<string>Chivo-Regular.ttf</string>
+		<string>MaterialIcons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
