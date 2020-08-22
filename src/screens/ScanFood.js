@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Dimensions,
   View,
@@ -14,7 +14,8 @@ const PLACEHOLDER_WIDTH = Dimensions.get('screen').width - 2 * SPACING.MEDIUM;
 const BORDER_WIDTH = 5;
 
 export default function ScanFood({ navigation }) {
-  const [loading, setLoading] = React.useState(false);
+  const camera = useRef();
+  const [loading, setLoading] = useState(false);
 
   const squareStyle = StyleSheet.flatten([
     styles.square,
@@ -24,6 +25,8 @@ export default function ScanFood({ navigation }) {
   return (
     <View style={styles.container}>
       <RNCamera
+        ref={camera}
+        captureAudio={false}
         style={styles.container}
         type={RNCamera.Constants.Type.back}
         flashMode={RNCamera.Constants.FlashMode.on}
