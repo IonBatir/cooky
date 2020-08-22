@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getFood } from '../api/firestore';
 import { FoodItem, ErrorAlert, Spinner } from '../components';
 import {
@@ -33,16 +34,18 @@ export default function FoodList({ navigation }) {
   );
 
   const FAB = () => (
-    <ActionButton buttonColor={COLOR.PRIMARY}>
+    <ActionButton
+      buttonColor={COLOR.PRIMARY}
+      renderIcon={() => <Icon name="add" size={40} color={COLOR.WHITE} />}>
       <ActionButton.Item
         title="Add Food"
         onPress={() => navigation.navigate(ADD_FOOD_SCREEN)}>
-        <Text style={styles.textIcon}>✎</Text>
+        <Icon name="create" size={30} color={COLOR.WHITE} />
       </ActionButton.Item>
       <ActionButton.Item
         title="Scan Food"
         onPress={() => navigation.navigate(SCAN_FOOD_SCREEN)}>
-        <Text style={styles.textIcon}>＝</Text>
+        <Icon name="center-focus-strong" size={30} color={COLOR.WHITE} />
       </ActionButton.Item>
     </ActionButton>
   );
@@ -100,5 +103,4 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: SPACING.MEDIUM,
   },
-  textIcon: { color: COLOR.WHITE, fontSize: FONT_SIZE.EXTRA_EXTRA_LARGE },
 });
