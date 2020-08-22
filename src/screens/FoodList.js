@@ -23,10 +23,6 @@ export default function FoodList({ navigation }) {
     [],
   );
 
-  const renderItem = ({ item }) => (
-    <FoodItem id={item.id} name={item.name} expiryDate={item.expiryDate} />
-  );
-
   const FAB = () => (
     <ActionButton
       buttonColor={COLOR.PRIMARY}
@@ -44,6 +40,10 @@ export default function FoodList({ navigation }) {
     </ActionButton>
   );
 
+  const renderItem = ({ item }) => (
+    <FoodItem id={item.id} name={item.name} expiryDate={item.expiryDate} />
+  );
+
   if (food.loading) {
     return <Spinner />;
   }
@@ -58,10 +58,11 @@ export default function FoodList({ navigation }) {
   ) : (
     <View style={styles.container}>
       <Header text="Food List" />
-      <View style={styles.foodList}>
+      <View style={styles.list}>
         <FlatList
           data={food.data}
           renderItem={renderItem}
+          keyExtractor={item => item.id}
           getItemLayout={(_, index) => ({
             length: FOOD_ITEM_HEIGHT,
             offset: FOOD_ITEM_HEIGHT * index,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLOR.BACKGROUND,
   },
-  foodList: {
+  list: {
     flex: 1,
     marginTop: SPACING.MEDIUM,
   },
