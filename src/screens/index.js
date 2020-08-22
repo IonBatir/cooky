@@ -6,3 +6,4 @@ export { default as FoodList } from './FoodList';
 export { default as AddFood } from './AddFood';
 export { default as ScanFood } from './ScanFood';
 export { default as RecipeList } from './RecipeList';
+export { default as Profile } from './Profile';
