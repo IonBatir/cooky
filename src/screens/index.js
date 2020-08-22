@@ -5,3 +5,4 @@ export { default as Dashboard } from './Dashboard';
 export { default as FoodList } from './FoodList';
 export { default as AddFood } from './AddFood';
 export { default as ScanFood } from './ScanFood';
+export { default as RecipeList } from './RecipeList';
