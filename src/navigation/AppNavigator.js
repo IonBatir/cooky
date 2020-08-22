@@ -1,39 +1,25 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FoodStack } from './';
-import { FOOD_STACK, RECIPE_LIST_SCREEN, PROFILE_SCREEN } from '../constants';
-import { RecipeList, Profile } from '../screens';
+import { createStackNavigator } from '@react-navigation/stack';
+import TabNavigator from './TabNavigator';
+import { AddFood, ScanFood } from '../screens';
+import { TAB_NAVIGATOR, ADD_FOOD_SCREEN, SCAN_FOOD_SCREEN } from '../constants';
 
-const Tab = createBottomTabNavigator();
+const AppNavigator = createStackNavigator();
 
 export default function() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name={FOOD_STACK}
-        component={FoodStack}
-        options={{
-          tabBarLabel: 'Food',
-          tabBarIcon: () => <Icon name="list" size={30} />,
-        }}
+    <AppNavigator.Navigator screenOptions={{ headerShown: false }}>
+      <AppNavigator.Screen name={TAB_NAVIGATOR} component={TabNavigator} />
+      <AppNavigator.Screen
+        name={ADD_FOOD_SCREEN}
+        component={AddFood}
+        options={{ title: 'Add Food' }}
       />
-      <Tab.Screen
-        name={RECIPE_LIST_SCREEN}
-        component={RecipeList}
-        options={{
-          tabBarLabel: 'Recipe',
-          tabBarIcon: () => <Icon name="library-books" size={30} />,
-        }}
+      <AppNavigator.Screen
+        name={SCAN_FOOD_SCREEN}
+        component={ScanFood}
+        options={{ title: 'Scan Food' }}
       />
-      <Tab.Screen
-        name={PROFILE_SCREEN}
-        component={Profile}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: () => <Icon name="account-box" size={30} />,
-        }}
-      />
-    </Tab.Navigator>
+    </AppNavigator.Navigator>
   );
 }
