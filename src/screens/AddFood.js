@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { Notifications } from 'react-native-notifications';
 import { addFood } from '../api/firestore';
 import { TextField, ErrorAlert, Spinner } from '../components';
 import { SPACING, COLOR, FONT_FAMILY, FONT_SIZE } from '../theme';
@@ -28,6 +29,16 @@ export default function AddFood({ navigation }) {
     addFood(name.value, expiryDate)
       .then(() => {
         setLoading(false);
+        const fireDate = new Date(expiryDate.getTime());
+        fireDate.setDate(expiryDate.getDate() - 1);
+        Notifications.postLocalNotification({
+          body: 'Cooky notification!',
+          title: `${name.value} is about to expiry!`,
+          sound: 'chime.aiff',
+          category: 'REMINDERS',
+          link: 'localNotificationLink',
+          fireDate,
+        });
         navigation.navigate(FOOD_LIST_SCREEN);
       })
       .catch(error => {
