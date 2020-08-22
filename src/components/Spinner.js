@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
-import { COLOR } from '../theme';
 
 export default function Spinner({ size = 'large' }) {
   return (
     <View style={styles.container}>
-      <ActivityIndicator size={size} />
+      <View style={styles.background}>
+        <ActivityIndicator size={size} />
+      </View>
     </View>
   );
 }
@@ -15,6 +16,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLOR.BACKGROUND,
+  },
+  background: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+    height: 100,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: 20,
   },
 });
