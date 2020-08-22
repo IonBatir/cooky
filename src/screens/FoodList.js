@@ -3,14 +3,8 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getFood } from '../api/firestore';
-import { FoodItem, ErrorAlert, Spinner } from '../components';
-import {
-  COLOR,
-  FONT_FAMILY,
-  FONT_SIZE,
-  SPACING,
-  FOOD_ITEM_HEIGHT,
-} from '../theme';
+import { FoodItem, ErrorAlert, Spinner, Header } from '../components';
+import { COLOR, SPACING, FOOD_ITEM_HEIGHT } from '../theme';
 import { ADD_FOOD_SCREEN, SCAN_FOOD_SCREEN } from '../constants';
 import commonStyles from './styles';
 
@@ -63,9 +57,7 @@ export default function FoodList({ navigation }) {
     </View>
   ) : (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Food List</Text>
-      </View>
+      <Header text="Food List" />
       <View style={styles.foodList}>
         <FlatList
           data={food.data}
@@ -86,18 +78,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLOR.BACKGROUND,
-  },
-  header: {
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    height: 100,
-    backgroundColor: COLOR.PRIMARY,
-  },
-  headerText: {
-    fontFamily: FONT_FAMILY.ITALIC,
-    fontSize: FONT_SIZE.EXTRA_LARGE,
-    color: COLOR.WHITE,
-    padding: SPACING.MEDIUM,
   },
   foodList: {
     flex: 1,
