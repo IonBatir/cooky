@@ -29,14 +29,12 @@ export default function RecipeList() {
   return recipes.data.length === 0 ? (
     <View style={styles.container}>
       <View style={commonStyles.centerContainer}>
-        <Text style={commonStyles.text}>
-          No recipes yet. Add some recipes in your profile!
-        </Text>
+        <Text style={commonStyles.text}>No recipes yet. Add some recipes!</Text>
       </View>
     </View>
   ) : (
     <View style={styles.container}>
-      <Header text="What can I cook?" />
+      <Header text="Recipes" />
       <View style={styles.list}>
         <FlatList
           data={recipes.data}
