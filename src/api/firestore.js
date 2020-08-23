@@ -65,3 +65,6 @@ export const getRecipes = (
     },
     error => errorCallback(error),
   );
+
+export const addRecipe = (name, ingredients, algorithm) =>
+  recipeCollection.add({ name, ingredients, algorithm, uid: getUid() });
