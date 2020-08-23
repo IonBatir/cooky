@@ -5,6 +5,7 @@ import { TextField, Spinner, ErrorAlert } from '../components';
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from '../theme';
 import { LOGIN_SCREEN } from '../constants';
 import commonStyles from './styles';
+import i from '../i18n';
 
 export default function ResetPassword({ navigation }) {
   const [email, setEmail] = useState({ value: '', error: null });
@@ -41,17 +42,15 @@ export default function ResetPassword({ navigation }) {
     <Spinner />
   ) : (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Forgot Password?</Text>
-      <Text style={commonStyles.subTitle}>
-        Please enter email to your account.
-      </Text>
+      <Text style={commonStyles.title}>{i.t('resetPassword')}</Text>
+      <Text style={commonStyles.subTitle}>{i.t('enterEmail')}</Text>
       <TextField
         onChangeText={text => setEmail(state => ({ ...state, value: text }))}
         onFocus={() => setEmail(state => ({ ...state, error: null }))}
         onSubmitEditing={handleResetPassword}
         value={email.value}
         error={email.error}
-        placeholder="Email Address"
+        placeholder={i.t('email')}
         returnKeyType="go"
         autoCompleteType="email"
         keyboardType="email-address"
@@ -61,7 +60,7 @@ export default function ResetPassword({ navigation }) {
       <TouchableOpacity
         style={styles.resetButton}
         onPress={handleResetPassword}>
-        <Text style={styles.resetButtonText}>RESET PASSWORD</Text>
+        <Text style={styles.resetButtonText}>{i.t('resetPassword')}</Text>
       </TouchableOpacity>
     </View>
   );
