@@ -20,7 +20,7 @@ export default function AddFood({ navigation, route }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    nameInput?.current.focus();
+    nameInput?.current?.focus();
   }, []);
 
   const handleAddFood = () => {
