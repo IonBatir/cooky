@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Cooking() {
+export default function Cook() {
   return (
     <View style={styles.container}>
-      <Text>Cooking</Text>
+      <Text>Cook</Text>
     </View>
   );
 }

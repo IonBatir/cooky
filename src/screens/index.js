@@ -7,4 +7,4 @@ export { default as AddFood } from './AddFood';
 export { default as ScanFood } from './ScanFood';
 export { default as RecipeList } from './RecipeList';
 export { default as Recipe } from './Recipe';
-export { default as Cooking } from './Cooking';
+export { default as Cook } from './Cook';
