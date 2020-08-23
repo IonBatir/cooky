@@ -1,5 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+import i from '../i18n';
 
 const foodCollection = firestore().collection('food');
 const barcodeCollection = firestore().collection('barcode');
@@ -47,7 +48,7 @@ export const getBarcode = id =>
     .then(doc =>
       doc.exists
         ? Promise.resolve(doc.data())
-        : Promise.reject({ userInfo: { message: 'No such barcode!' } }),
+        : Promise.reject({ userInfo: { message: i.t('noBarcode') } }),
     );
 
 export const getRecipes = (

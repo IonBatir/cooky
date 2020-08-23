@@ -11,6 +11,7 @@ import { ErrorAlert, Spinner } from '../components';
 import { FONT_FAMILY, FONT_SIZE, SPACING, COLOR } from '../theme';
 import { getBarcode } from '../api/firestore';
 import { ADD_FOOD_SCREEN } from '../constants';
+import i from '../i18n';
 
 const PLACEHOLDER_WIDTH = Dimensions.get('screen').width - 2 * SPACING.MEDIUM;
 
@@ -76,16 +77,16 @@ export default function ScanFood({ navigation }) {
         type={RNCamera.Constants.Type.back}
         flashMode={RNCamera.Constants.FlashMode.on}
         androidCameraPermissionOptions={{
-          title: 'Permission to use camera',
-          message: 'We need your permission to use your camera',
+          title: i.t('cameraPermission'),
+          message: i.t('cameraPermissionMessage'),
           buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
+          buttonNegative: i.t('cancel'),
         }}
         onGoogleVisionBarcodesDetected={handleBardCodeDetected}
       />
       <View style={styles.overlay}>
         <View style={styles.overlayView}>
-          <Text style={styles.scanText}>Scan BarCode</Text>
+          <Text style={styles.scanText}>{i.t('scanBarcode')}</Text>
           <View style={styles.placeholder}>
             <View style={[squareStyle, styles.leftTopBorder]} />
             <View style={[squareStyle, styles.rightTopBorder]} />
@@ -95,7 +96,7 @@ export default function ScanFood({ navigation }) {
           <TouchableOpacity
             style={styles.backButton}
             onPress={() => navigation.goBack()}>
-            <Text style={styles.backButtonText}>Back</Text>
+            <Text style={styles.backButtonText}>{i.t('back')}</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Header } from '../components';
 import { COLOR } from '../theme';
+import i from '../i18n';
 
 export default function Cook() {
   return (
     <View style={styles.container}>
-      <Header text="What can I cook?" />
+      <Header text={i.t('cook')} />
     </View>
   );
 }

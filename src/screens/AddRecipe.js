@@ -6,6 +6,7 @@ import { addRecipe } from '../api/firestore';
 import { SPACING, COLOR, FONT_FAMILY, FONT_SIZE } from '../theme';
 import commonStyles from './styles';
 import { RECIPE_LIST_SCREEN } from '../constants';
+import i from '../i18n';
 
 export default function AddRecipe({ navigation }) {
   const nameInput = useRef(null);
@@ -22,7 +23,7 @@ export default function AddRecipe({ navigation }) {
     if (name.value.length === 0) {
       setName(prevState => ({
         ...prevState,
-        error: 'Please fill out this field',
+        error: i.t('fillField'),
       }));
       return;
     }
@@ -30,7 +31,7 @@ export default function AddRecipe({ navigation }) {
     let errorIngredients = false;
     ingredients.forEach((ingredient, index) => {
       if (ingredient.value.length === 0) {
-        setIngredientError('Please fill out this field', index);
+        setIngredientError(i.t('fillField'), index);
         errorIngredients = true;
       }
     });
@@ -41,7 +42,7 @@ export default function AddRecipe({ navigation }) {
     if (algorithm.value.length === 0) {
       setAlgorithm(prevState => ({
         ...prevState,
-        error: 'Please fill out this field',
+        error: i.t('fillField'),
       }));
       return;
     }
@@ -67,11 +68,11 @@ export default function AddRecipe({ navigation }) {
 
   const setIngredientValue = (text, index) =>
     setIngredients(prevState =>
-      prevState.map((item, i) =>
-        i === index
+      prevState.map((item, idx) =>
+        idx === index
           ? {
               value: text,
-              error: text.length ? null : 'Please fill out this field',
+              error: text.length ? null : i.t('fillField'),
             }
           : item,
       ),
@@ -79,8 +80,8 @@ export default function AddRecipe({ navigation }) {
 
   const setIngredientError = (error, index) =>
     setIngredients(prevState =>
-      prevState.map((item, i) =>
-        i === index
+      prevState.map((item, idx) =>
+        idx === index
           ? {
               ...item,
               error,
@@ -96,22 +97,20 @@ export default function AddRecipe({ navigation }) {
     <Spinner />
   ) : (
     <View style={styles.container}>
-      <Text style={commonStyles.title}>Add a recipe!</Text>
-      <Text style={commonStyles.subTitle}>
-        Please enter recipe name, ingredients and algorithm of cooking.
-      </Text>
+      <Text style={commonStyles.title}>{i.t('addRecipe')}</Text>
+      <Text style={commonStyles.subTitle}>{i.t('enterRecipeDetails')}</Text>
       <TextField
         inputRef={nameInput}
         style={styles.textField}
         onChangeText={text =>
           setName({
-            error: text.length ? null : 'Please fill out this field',
+            error: text.length ? null : i.t('fillField'),
             value: text,
           })
         }
         value={name.value}
         error={name.error}
-        placeholder="Recipe name"
+        placeholder={i.t('recipeName')}
         returnKeyType="done"
       />
       {ingredients.map((ingredient, index) => (
@@ -121,7 +120,7 @@ export default function AddRecipe({ navigation }) {
             onChangeText={text => setIngredientValue(text, index)}
             value={ingredient.value}
             error={ingredient.error}
-            placeholder={`Ingredient ${index + 1}`}
+            placeholder={`${i.t('ingredient')} ${index + 1}`}
             returnKeyType="done"
           />
           <TouchableOpacity
@@ -141,18 +140,18 @@ export default function AddRecipe({ navigation }) {
         numberOfLines={4}
         onChangeText={text =>
           setAlgorithm({
-            error: text.length ? null : 'Please fill out this field',
+            error: text.length ? null : i.t('fillField'),
             value: text,
           })
         }
         onSubmitEditing={handleAddRecipe}
         value={algorithm.value}
         error={algorithm.error}
-        placeholder="Algorithm of cooking"
+        placeholder={i.t('algorithmCook')}
         returnKeyType="go"
       />
       <TouchableOpacity style={styles.addButton} onPress={handleAddRecipe}>
-        <Text style={styles.addButtonText}>ADD</Text>
+        <Text style={styles.addButtonText}>{i.t('add')}</Text>
       </TouchableOpacity>
     </View>
   );

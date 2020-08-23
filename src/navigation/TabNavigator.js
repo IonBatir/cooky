@@ -5,6 +5,7 @@ import { FoodList } from '../screens';
 import CookStack from './CookStack';
 import RecipeStack from './RecipeStack';
 import { FOOD_LIST_SCREEN, RECIPE_STACK, COOK_STACK } from '../constants';
+import i from '../i18n';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +16,7 @@ export default function() {
         name={FOOD_LIST_SCREEN}
         component={FoodList}
         options={{
-          tabBarLabel: 'Food',
+          tabBarLabel: i.t('food'),
           tabBarIcon: () => <Icon name="list" size={30} />,
         }}
       />
@@ -23,7 +24,7 @@ export default function() {
         name={COOK_STACK}
         component={CookStack}
         options={{
-          tabBarLabel: 'Cooking',
+          tabBarLabel: i.t('cooking'),
           tabBarIcon: () => <Icon name="restaurant" size={30} />,
         }}
       />
@@ -31,7 +32,7 @@ export default function() {
         name={RECIPE_STACK}
         component={RecipeStack}
         options={{
-          tabBarLabel: 'Recipes',
+          tabBarLabel: i.t('recipes'),
           tabBarIcon: () => <Icon name="library-books" size={30} />,
         }}
       />

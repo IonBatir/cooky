@@ -9,6 +9,7 @@ import {
   APP_NAVIGATOR,
 } from '../constants';
 import commonStyles from './styles';
+import i from '../i18n';
 
 export default function Login({ navigation }) {
   const passwordInput = useRef(null);
@@ -18,11 +19,11 @@ export default function Login({ navigation }) {
 
   const handleLogin = () => {
     if (email.value.length === 0) {
-      setEmail(state => ({ ...state, error: 'Please fill out this field' }));
+      setEmail(state => ({ ...state, error: i.t('fillField') }));
       return;
     }
     if (password.value.length === 0) {
-      setPassword(state => ({ ...state, error: 'Please fill out this field' }));
+      setPassword(state => ({ ...state, error: i.t('fillField') }));
       return;
     }
 
@@ -48,8 +49,8 @@ export default function Login({ navigation }) {
     <Spinner />
   ) : (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Welcome!</Text>
-      <Text style={commonStyles.subTitle}>Please login to your profile.</Text>
+      <Text style={commonStyles.title}>{i.t('welcome')}</Text>
+      <Text style={commonStyles.subTitle}>{i.t('pleaseLogin')}</Text>
       <TextField
         style={styles.textField}
         onChangeText={text => setEmail(state => ({ ...state, value: text }))}
@@ -57,7 +58,7 @@ export default function Login({ navigation }) {
         onSubmitEditing={() => passwordInput.current.focus()}
         value={email.value}
         error={email.error}
-        placeholder="Email Address"
+        placeholder={i.t('email')}
         returnKeyType="next"
         autoCompleteType="email"
         keyboardType="email-address"
@@ -71,19 +72,19 @@ export default function Login({ navigation }) {
         onSubmitEditing={handleLogin}
         value={password.value}
         error={password.error}
-        placeholder="Password"
+        placeholder={i.t('password')}
         returnKeyType="go"
         secureTextEntry
       />
       <TouchableOpacity
         onPress={() => navigation.navigate(RESET_PASSWORD_SCREEN)}>
-        <Text style={styles.forgotButtonText}>Forgot?</Text>
+        <Text style={styles.forgotButtonText}>{i.t('forgot')}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <Text style={styles.loginButtonText}>LOGIN</Text>
+        <Text style={styles.loginButtonText}>{i.t('login')}</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate(REGISTER_SCREEN)}>
-        <Text style={styles.registerButtonText}>REGISTER NOW</Text>
+        <Text style={styles.registerButtonText}>{i.t('register')}</Text>
       </TouchableOpacity>
     </View>
   );

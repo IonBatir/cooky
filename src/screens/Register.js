@@ -5,6 +5,7 @@ import { Spinner, TextField, ErrorAlert } from '../components';
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from '../theme';
 import { APP_NAVIGATOR } from '../constants';
 import commonStyles from './styles';
+import i from '../i18n';
 
 export default function Register({ navigation }) {
   const passwordInput = useRef(null);
@@ -19,17 +20,17 @@ export default function Register({ navigation }) {
 
   const handleRegister = () => {
     if (email.value.length === 0) {
-      setEmail(state => ({ ...state, error: 'Please fill out this field' }));
+      setEmail(state => ({ ...state, error: i.t('fillField') }));
       return;
     }
     if (password.value.length === 0) {
-      setPassword(state => ({ ...state, error: 'Please fill out this field' }));
+      setPassword(state => ({ ...state, error: i.t('fillField') }));
       return;
     }
     if (password.value !== confirmPassword.value) {
       setConfirmPassword(state => ({
         ...state,
-        error: 'Passwords do not match!',
+        error: i.t('noMatchPassword'),
       }));
       return;
     }
@@ -56,8 +57,8 @@ export default function Register({ navigation }) {
     <Spinner />
   ) : (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Register</Text>
-      <Text style={commonStyles.subTitle}>Please enter your profile data.</Text>
+      <Text style={commonStyles.title}>{i.t('register')}</Text>
+      <Text style={commonStyles.subTitle}>{i.t('enterProfileDetails')}</Text>
       <TextField
         style={styles.textField}
         onChangeText={text => setEmail(state => ({ ...state, value: text }))}
@@ -65,7 +66,7 @@ export default function Register({ navigation }) {
         onSubmitEditing={() => passwordInput.current.focus()}
         value={email.value}
         error={email.error}
-        placeholder="Email Address"
+        placeholder={i.t('email')}
         returnKeyType="next"
         autoCompleteType="email"
         keyboardType="email-address"
@@ -80,7 +81,7 @@ export default function Register({ navigation }) {
         onSubmitEditing={() => passwordConfirmInput.current.focus()}
         value={password.value}
         error={password.error}
-        placeholder="Password"
+        placeholder={i.t('password')}
         returnKeyType="next"
         autoCompleteType="password"
         textContentType="newPassword"
@@ -95,14 +96,14 @@ export default function Register({ navigation }) {
         onSubmitEditing={handleRegister}
         value={confirmPassword.value}
         error={confirmPassword.error}
-        placeholder="Confirm Password"
+        placeholder={i.t('confirmPassword')}
         returnKeyType="go"
         autoCompleteType="password"
         textContentType="newPassword"
         secureTextEntry
       />
       <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
-        <Text style={styles.registerButtonText}>REGISTER</Text>
+        <Text style={styles.registerButtonText}>{i.t('register')}</Text>
       </TouchableOpacity>
     </View>
   );

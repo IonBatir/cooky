@@ -6,6 +6,7 @@ import {
   RECIPE_SCREEN,
   ADD_RECIPE_SCREEN,
 } from '../constants';
+import i from '../i18n';
 
 const RecipeStack = createStackNavigator();
 
@@ -25,7 +26,7 @@ export default function() {
       <RecipeStack.Screen
         name={ADD_RECIPE_SCREEN}
         component={AddRecipe}
-        options={{ title: 'Add Recipe' }}
+        options={{ title: i.t('addRecipe') }}
       />
     </RecipeStack.Navigator>
   );

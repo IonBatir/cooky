@@ -10,8 +10,9 @@ import {
   SPACING,
   FOOD_ITEM_HEIGHT,
 } from '../theme';
+import i from '../i18n';
 
-const calculateMarkerColor = date => {
+const getMarkerColor = date => {
   const now = new Date();
   const diffTime = date - now;
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -30,7 +31,7 @@ export default function FoodList({ id, name, expiryDate }) {
       backgroundColor={COLOR.WHITE}
       right={[
         {
-          text: 'Delete',
+          text: i.t('delete'),
           backgroundColor: COLOR.RED,
           type: 'delete',
           onPress: () =>
@@ -47,7 +48,7 @@ export default function FoodList({ id, name, expiryDate }) {
         <View
           style={[
             styles.marker,
-            { backgroundColor: calculateMarkerColor(expiryDate) },
+            { backgroundColor: getMarkerColor(expiryDate) },
           ]}
         />
       </View>

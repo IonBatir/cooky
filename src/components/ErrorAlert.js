@@ -1,13 +1,14 @@
 import { Alert } from 'react-native';
+import i from '../i18n';
 
 export default function ErrorAlert(
-  message = 'Something went wrong! Try again.',
+  message = i.t('errorMessage'),
   onOk = () => {},
   onCancel,
 ) {
   const buttons = [{ text: 'OK', onPress: onOk }];
   if (onCancel) {
-    buttons.push({ text: 'Cancel', onPress: onCancel });
+    buttons.push({ text: i.t('cancel'), onPress: onCancel });
   }
-  Alert.alert('Error', message, buttons);
+  Alert.alert(i.t('error'), message, buttons);
 }

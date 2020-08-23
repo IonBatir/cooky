@@ -12,7 +12,7 @@ export default function ResetPassword({ navigation }) {
 
   const handleResetPassword = () => {
     if (email.value.length === 0) {
-      setEmail(state => ({ ...state, error: 'Please fill out this field' }));
+      setEmail(state => ({ ...state, error: i.t('fillField') }));
       return;
     }
 

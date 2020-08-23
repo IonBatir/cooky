@@ -8,6 +8,7 @@ import { SPACING, COLOR, FONT_FAMILY, FONT_SIZE } from '../theme';
 import { FOOD_LIST_SCREEN } from '../constants';
 import { isAndroid, isIOS } from '../utils';
 import commonStyles from './styles';
+import i from '../i18n';
 
 export default function AddFood({ navigation, route }) {
   const nameInput = useRef(null);
@@ -25,7 +26,7 @@ export default function AddFood({ navigation, route }) {
 
   const handleAddFood = () => {
     if (name.value.length === 0) {
-      setName(state => ({ ...state, error: 'Please fill out this field' }));
+      setName(state => ({ ...state, error: i.t('fillField') }));
       return;
     }
     setLoading(true);
@@ -35,8 +36,8 @@ export default function AddFood({ navigation, route }) {
         const fireDate = new Date(expiryDate.getTime());
         fireDate.setDate(expiryDate.getDate() - 1);
         Notifications.postLocalNotification({
-          body: 'Cooky notification!',
-          title: `${name.value} is about to expiry!`,
+          body: i.t('notification'),
+          title: `${name.value} ${i.t('expiry')}`,
           sound: 'chime.aiff',
           category: 'REMINDERS',
           link: 'localNotificationLink',
@@ -54,22 +55,20 @@ export default function AddFood({ navigation, route }) {
     <Spinner />
   ) : (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Add food!</Text>
-      <Text style={commonStyles.subTitle}>
-        Please enter food name and expiry date.
-      </Text>
+      <Text style={commonStyles.title}>{i.t('addFood')}</Text>
+      <Text style={commonStyles.subTitle}>{i.t('enterFoodDetails')}</Text>
       <TextField
         inputRef={nameInput}
         style={styles.textField}
         onChangeText={text =>
           setName({
-            error: text.length ? null : 'Please fill out this field',
+            error: text.length ? null : i.t('fillField'),
             value: text,
           })
         }
         value={name.value}
         error={name.error}
-        placeholder="Food name"
+        placeholder={i.t('foodName')}
         returnKeyType="next"
       />
       {isAndroid && (
@@ -78,7 +77,7 @@ export default function AddFood({ navigation, route }) {
             inputRef={nameInput}
             style={styles.textField}
             value={expiryDate.toLocaleDateString()}
-            placeholder="Expiry date"
+            placeholder={i.t('expiryDate')}
             editable={false}
           />
         </TouchableOpacity>
@@ -94,7 +93,7 @@ export default function AddFood({ navigation, route }) {
         />
       )}
       <TouchableOpacity style={styles.addButton} onPress={handleAddFood}>
-        <Text style={styles.addButtonText}>ADD</Text>
+        <Text style={styles.addButtonText}>{i.t('add')}</Text>
       </TouchableOpacity>
     </View>
   );

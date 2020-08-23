@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
+import i from '../i18n';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getFood } from '../api/firestore';
@@ -57,7 +58,7 @@ export default function FoodList({ navigation }) {
     </View>
   ) : (
     <View style={styles.container}>
-      <Header text="Food List" />
+      <Header text={i.t('foodList')} />
       <View style={styles.list}>
         <FlatList
           data={food.data}

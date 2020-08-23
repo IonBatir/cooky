@@ -7,6 +7,7 @@ import { ErrorAlert, RecipeItem, Spinner, Header } from '../components';
 import { RECIPE_ITEM_HEIGHT, SPACING, COLOR } from '../theme';
 import { RECIPE_SCREEN, ADD_RECIPE_SCREEN } from '../constants';
 import commonStyles from './styles';
+import i from '../i18n';
 
 export default function RecipeList({ navigation }) {
   const [recipes, setRecipes] = useState({ data: [], loading: true });
@@ -45,13 +46,13 @@ export default function RecipeList({ navigation }) {
   return recipes.data.length === 0 ? (
     <View style={styles.container}>
       <View style={commonStyles.centerContainer}>
-        <Text style={commonStyles.text}>No recipes yet. Add some recipes!</Text>
+        <Text style={commonStyles.text}>{i.t('noRecipes')}</Text>
       </View>
       <FAB />
     </View>
   ) : (
     <View style={styles.container}>
-      <Header text="Recipes" />
+      <Header text={i.t('recipes')} />
       <View style={styles.list}>
         <FlatList
           data={recipes.data}

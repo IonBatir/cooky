@@ -10,16 +10,8 @@ export default function() {
   return (
     <AppNavigator.Navigator screenOptions={{ headerShown: false }}>
       <AppNavigator.Screen name={TAB_NAVIGATOR} component={TabNavigator} />
-      <AppNavigator.Screen
-        name={ADD_FOOD_SCREEN}
-        component={AddFood}
-        options={{ title: 'Add Food' }}
-      />
-      <AppNavigator.Screen
-        name={SCAN_FOOD_SCREEN}
-        component={ScanFood}
-        options={{ title: 'Scan Food' }}
-      />
+      <AppNavigator.Screen name={ADD_FOOD_SCREEN} component={AddFood} />
+      <AppNavigator.Screen name={SCAN_FOOD_SCREEN} component={ScanFood} />
     </AppNavigator.Navigator>
   );
 }
