@@ -58,7 +58,7 @@ export default function FoodList({ navigation }) {
     </View>
   ) : (
     <View style={styles.container}>
-      <Header text={i.t('foodList')} />
+      <Header text={i.t('food')} />
       <View style={styles.list}>
         <FlatList
           data={food.data}
