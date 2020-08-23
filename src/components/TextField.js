@@ -2,14 +2,7 @@ import React from 'react';
 import { Platform, View, TextInput, Text, StyleSheet } from 'react-native';
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from '../theme';
 
-export default function TextField({
-  inputRef,
-  style,
-  onChangeText,
-  value,
-  error,
-  ...other
-}) {
+export default function TextField({ inputRef, style, error, ...other }) {
   return (
     <View style={[styles.input, style, error && styles.inputError]}>
       <TextInput ref={inputRef} style={styles.inputText} {...other} />
