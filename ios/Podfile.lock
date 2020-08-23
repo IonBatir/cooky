@@ -570,6 +570,8 @@ PODS:
     - RNFBApp
   - RNGestureHandler (1.6.1):
     - React
+  - RNI18n (2.0.15):
+    - React
   - RNReanimated (1.8.0):
     - React
   - RNScreens (2.7.0):
@@ -615,6 +617,7 @@ DEPENDENCIES:
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNI18n (from `../node_modules/react-native-i18n`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -717,6 +720,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/firestore"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNI18n:
+    :path: "../node_modules/react-native-i18n"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -787,11 +792,12 @@ SPEC CHECKSUMS:
   RNFBAuth: c292603069a09065a1b4d3336148beff83e4c897
   RNFBFirestore: 23757ad7c33d81587a5d7d7d77f3ea22a1103372
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
   RNScreens: cf198f915f8a2bf163de94ca9f5bfc8d326c3706
   RNVectorIcons: da6fe858f5a65d7bbc3379540a889b0b12aa5976
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 8f19e891673b38d061c4a7dd1ee06eb3999d6536
+PODFILE CHECKSUM: ec9000338126a0a801c291761cb7a914b9a87cf5
 
 COCOAPODS: 1.9.3
