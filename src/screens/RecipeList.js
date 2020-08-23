@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getRecipes } from '../api/firestore';
 import { ErrorAlert, RecipeItem, Spinner, Header } from '../components';
 import { RECIPE_ITEM_HEIGHT, SPACING, COLOR } from '../theme';
-import { RECIPE_SCREEN } from '../constants';
+import { RECIPE_SCREEN, ADD_RECIPE_SCREEN } from '../constants';
 import commonStyles from './styles';
 
 export default function RecipeList({ navigation }) {
@@ -19,6 +21,14 @@ export default function RecipeList({ navigation }) {
         },
       ),
     [],
+  );
+
+  const FAB = () => (
+    <ActionButton
+      buttonColor={COLOR.PRIMARY}
+      onPress={() => navigation.navigate(ADD_RECIPE_SCREEN)}
+      renderIcon={() => <Icon name="add" size={40} color={COLOR.WHITE} />}
+    />
   );
 
   const renderItem = ({ item }) => (
@@ -37,6 +47,7 @@ export default function RecipeList({ navigation }) {
       <View style={commonStyles.centerContainer}>
         <Text style={commonStyles.text}>No recipes yet. Add some recipes!</Text>
       </View>
+      <FAB />
     </View>
   ) : (
     <View style={styles.container}>
@@ -53,6 +64,7 @@ export default function RecipeList({ navigation }) {
           })}
         />
       </View>
+      <FAB />
     </View>
   );
 }
