@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Header } from '../components';
+import { COLOR } from '../theme';
 
 export default function Cook() {
   return (
     <View style={styles.container}>
-      <Text>Cook</Text>
+      <Header text="What can I cook?" />
     </View>
   );
 }
@@ -12,7 +14,6 @@ export default function Cook() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: COLOR.BACKGROUND,
   },
 });

@@ -15,3 +15,5 @@ export const SCAN_FOOD_SCREEN = 'SCAN_FOOD_SCREEN';
 export const RECIPE_STACK = 'RECIPE_STACK';
 export const RECIPE_LIST_SCREEN = 'RECIPE_LIST_SCREEN';
 export const RECIPE_SCREEN = 'RECIPE_SCREEN';
+export const COOK_STACK = 'COOK_STACK';
+export const COOK_SCREEN = 'COOK_SCREEN';
