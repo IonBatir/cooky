@@ -12,13 +12,7 @@ export default function TextField({
 }) {
   return (
     <View style={[styles.input, style, error && styles.inputError]}>
-      <TextInput
-        ref={inputRef}
-        style={styles.inputText}
-        onChangeText={onChangeText}
-        value={value}
-        {...other}
-      />
+      <TextInput ref={inputRef} style={styles.inputText} {...other} />
       {error && <Text style={styles.errorText}>{error}</Text>}
     </View>
   );
