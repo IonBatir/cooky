@@ -54,7 +54,7 @@ export const getRecipes = (
   successCallback,
   errorCallback = error => console.error(error),
 ) =>
-  recipeCollection.onSnapshot(
+  recipeCollection.where('uid', '==', getUid()).onSnapshot(
     querySnapshot => {
       const recipes = [];
       querySnapshot.forEach(doc => {
