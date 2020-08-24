@@ -1,35 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { getRecipes } from '../api/firestore';
-import { ErrorAlert, RecipeItem, Spinner, Header } from '../components';
-import { LIST_ITEM_HEIGHT, SPACING, COLOR } from '../theme';
-import { RECIPE_SCREEN, ADD_RECIPE_SCREEN } from '../constants';
+import { Header, ErrorAlert, Spinner, RecipeItem } from '../components';
+import { getCook } from '../api/firestore';
+import { COLOR, LIST_ITEM_HEIGHT, SPACING } from '../theme';
 import commonStyles from './styles';
 import i from '../i18n';
 
-export default function RecipeList({ navigation }) {
-  const [recipes, setRecipes] = useState({ data: [], loading: true });
+export default function CookingList({ navigation }) {
+  const [cook, setCook] = useState({ data: [], loading: true });
 
   useEffect(
     () =>
-      getRecipes(
-        data => setRecipes({ data, loading: false }),
+      getCook(
+        data => setCook({ data, loading: false }),
         error => {
+          setCook({ data: [], loading: false });
           ErrorAlert(error.userInfo?.message);
-          setRecipes({ data: [], loading: false });
         },
       ),
     [],
-  );
-
-  const FAB = () => (
-    <ActionButton
-      buttonColor={COLOR.PRIMARY}
-      onPress={() => navigation.navigate(ADD_RECIPE_SCREEN)}
-      renderIcon={() => <Icon name="add" size={40} color={COLOR.WHITE} />}
-    />
   );
 
   const renderItem = ({ item }) => (
@@ -39,25 +28,24 @@ export default function RecipeList({ navigation }) {
     />
   );
 
-  if (recipes.loading) {
+  if (cook.loading) {
     return <Spinner />;
   }
 
-  return recipes.data.length === 0 ? (
+  return cook.data.length === 0 ? (
     <View style={styles.container}>
       <View style={commonStyles.centerContainer}>
-        <Text style={commonStyles.text}>{i.t('noRecipes')}</Text>
+        <Text style={commonStyles.text}>{i.t('noCook')}</Text>
       </View>
-      <FAB />
     </View>
   ) : (
     <View style={styles.container}>
-      <Header text={i.t('myRecipes')} />
+      <Header text={i.t('cook')} />
       <View style={styles.list}>
         <FlatList
-          data={recipes.data}
+          data={cook.data}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.recipeId}
           getItemLayout={(_, index) => ({
             length: LIST_ITEM_HEIGHT,
             offset: LIST_ITEM_HEIGHT * index,
@@ -65,7 +53,6 @@ export default function RecipeList({ navigation }) {
           })}
         />
       </View>
-      <FAB />
     </View>
   );
 }

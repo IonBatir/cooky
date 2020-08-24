@@ -5,7 +5,7 @@ import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getFood } from '../api/firestore';
 import { FoodItem, ErrorAlert, Spinner, Header } from '../components';
-import { COLOR, SPACING, FOOD_ITEM_HEIGHT } from '../theme';
+import { COLOR, SPACING, LIST_ITEM_HEIGHT } from '../theme';
 import { ADD_FOOD_SCREEN, SCAN_FOOD_SCREEN } from '../constants';
 import commonStyles from './styles';
 
@@ -52,7 +52,7 @@ export default function FoodList({ navigation }) {
   return food.data.length === 0 ? (
     <View style={styles.container}>
       <View style={commonStyles.centerContainer}>
-        <Text style={commonStyles.text}>No food yet. Add some food!</Text>
+        <Text style={commonStyles.text}>{i.t('noFood')}</Text>
       </View>
       <FAB />
     </View>
@@ -65,8 +65,8 @@ export default function FoodList({ navigation }) {
           renderItem={renderItem}
           keyExtractor={item => item.id}
           getItemLayout={(_, index) => ({
-            length: FOOD_ITEM_HEIGHT,
-            offset: FOOD_ITEM_HEIGHT * index,
+            length: LIST_ITEM_HEIGHT,
+            offset: LIST_ITEM_HEIGHT * index,
             index,
           })}
         />

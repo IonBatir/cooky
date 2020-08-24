@@ -33,15 +33,15 @@ export default function AddFood({ navigation, route }) {
     addFood(name.value, expiryDate)
       .then(() => {
         setLoading(false);
+        console.log('expiryDate', expiryDate);
         const fireDate = new Date(expiryDate.getTime());
+        console.log('fireDate', fireDate);
         fireDate.setDate(expiryDate.getDate() - 1);
+        console.log('fireDate', fireDate);
         Notifications.postLocalNotification({
           body: i.t('notification'),
           title: `${name.value} ${i.t('expiry')}`,
-          sound: 'chime.aiff',
-          category: 'REMINDERS',
-          link: 'localNotificationLink',
-          fireDate,
+          fireDate: fireDate.getTime(),
         });
         navigation.navigate(FOOD_LIST_SCREEN);
       })

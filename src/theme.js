@@ -42,6 +42,4 @@ export const DEBUG = {
   borderColor: COLOR.RED,
 };
 
-export const FOOD_ITEM_HEIGHT = 60;
-
-export const RECIPE_ITEM_HEIGHT = 60;
+export const LIST_ITEM_HEIGHT = 60;

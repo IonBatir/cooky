@@ -5,12 +5,13 @@ import i from '../i18n';
 const foodCollection = firestore().collection('food');
 const barcodeCollection = firestore().collection('barcode');
 const recipeCollection = firestore().collection('recipes');
+const cookCollection = firestore().collection('cook');
 
 const getUid = () => auth().currentUser?.uid;
 
 export const getFood = (
   successCallback,
-  errorCallback = error => console.error(error),
+  errorCallback = error => console.log(error),
 ) =>
   foodCollection
     .where('uid', '==', getUid())
@@ -53,7 +54,7 @@ export const getBarcode = id =>
 
 export const getRecipes = (
   successCallback,
-  errorCallback = error => console.error(error),
+  errorCallback = error => console.log(error),
 ) =>
   recipeCollection.where('uid', '==', getUid()).onSnapshot(
     querySnapshot => {
@@ -69,3 +70,14 @@ export const getRecipes = (
 
 export const addRecipe = (name, ingredients, algorithm) =>
   recipeCollection.add({ name, ingredients, algorithm, uid: getUid() });
+
+export const getCook = (
+  successCallback,
+  errorCallback = error => console.log(error),
+) =>
+  cookCollection
+    .doc(getUid())
+    .onSnapshot(
+      doc => successCallback(doc.data().recipes),
+      error => errorCallback(error),
+    );

@@ -2,9 +2,9 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FoodList } from '../screens';
-import CookStack from './CookStack';
+import CookingStack from './CookingStack';
 import RecipeStack from './RecipeStack';
-import { FOOD_LIST_SCREEN, RECIPE_STACK, COOK_STACK } from '../constants';
+import { FOOD_LIST_SCREEN, RECIPE_STACK, COOKING_STACK } from '../constants';
 import i from '../i18n';
 
 const Tab = createBottomTabNavigator();
@@ -21,8 +21,8 @@ export default function() {
         }}
       />
       <Tab.Screen
-        name={COOK_STACK}
-        component={CookStack}
+        name={COOKING_STACK}
+        component={CookingStack}
         options={{
           tabBarLabel: i.t('cooking'),
           tabBarIcon: () => <Icon name="restaurant" size={30} />,

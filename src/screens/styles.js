@@ -29,5 +29,7 @@ export default StyleSheet.create({
   text: {
     fontFamily: FONT_FAMILY.LIGHT_ITALIC,
     fontSize: FONT_SIZE.LARGE,
+    textAlign: 'center',
+    marginHorizontal: SPACING.MEDIUM,
   },
 });

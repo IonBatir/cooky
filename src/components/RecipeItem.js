@@ -5,7 +5,7 @@ import {
   FONT_FAMILY,
   FONT_SIZE,
   SPACING,
-  FOOD_ITEM_HEIGHT,
+  LIST_ITEM_HEIGHT,
 } from '../theme';
 
 export default function FoodList({ name, handlePress }) {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: COLOR.WHITE,
-    height: FOOD_ITEM_HEIGHT,
+    height: LIST_ITEM_HEIGHT,
     marginHorizontal: SPACING.MEDIUM,
     marginVertical: SPACING.SMALL,
     shadowColor: COLOR.BLACK,
