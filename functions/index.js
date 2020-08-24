@@ -2,6 +2,25 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
+function replaceRomanianChars(str) {
+  const regex = /(ă|î|ș|ț|â)/g;
+  const charMap = {
+    ă: 'a',
+    î: 'i',
+    ș: 'ș',
+    ț: 't',
+    â: 'a',
+  };
+  if (regex.test(str)) {
+    str = str.replace(regex, (m, key) => charMap[key]);
+  }
+  return str;
+}
+
+function cleanString(str) {
+  return replaceRomanianChars(str.toLowerCase());
+}
+
 function getFood(uid) {
   return admin
     .firestore()
@@ -35,11 +54,24 @@ function generateCookingRecipes(uid) {
   return Promise.all([getFood(uid), getRecipes()]).then(([food, recipes]) => {
     const validRecipes = [];
     recipes.forEach(recipe => {
-      if (food.every(fd => recipe.ingredients.includes(fd)))
+      const cleanFood = cleanString(food.join(''));
+      if (
+        recipe.ingredients.every(ingredient =>
+          cleanFood.contains(cleanFood(ingredient)),
+        )
+      )
         validRecipes.push({ recipeId: recipe.id, name: recipe.name });
     });
     return Promise.resolve(validRecipes);
   });
+}
+
+function setRecipes(uid, recipes) {
+  return admin
+    .firestore()
+    .collection('cook')
+    .doc(uid)
+    .set({ uid, recipes });
 }
 
 exports.handleCreateFood = functions.firestore
@@ -47,11 +79,7 @@ exports.handleCreateFood = functions.firestore
   .onCreate(async snap => {
     const uid = snap.data().uid;
     const recipes = await generateCookingRecipes(uid);
-    return admin
-      .firestore()
-      .collection('cook')
-      .doc(uid)
-      .set({ uid, recipes });
+    return setRecipes(uid, recipes);
   });
 
 exports.handleDeleteFood = functions.firestore
@@ -59,11 +87,7 @@ exports.handleDeleteFood = functions.firestore
   .onDelete(async snap => {
     const uid = snap.data().uid;
     const recipes = await generateCookingRecipes(uid);
-    return admin
-      .firestore()
-      .collection('cook')
-      .doc(uid)
-      .set({ uid, recipes });
+    return setRecipes(uid, recipes);
   });
 
 exports.handleCreateRecipe = functions.firestore
@@ -71,9 +95,5 @@ exports.handleCreateRecipe = functions.firestore
   .onCreate(async snap => {
     const uid = snap.data().uid;
     const recipes = await generateCookingRecipes(uid);
-    return admin
-      .firestore()
-      .collection('cook')
-      .doc(uid)
-      .set({ uid, recipes });
+    return setRecipes(uid, recipes);
   });
