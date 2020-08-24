@@ -4,7 +4,7 @@ import i from '../i18n';
 
 const foodCollection = firestore().collection('food');
 const barcodeCollection = firestore().collection('barcode');
-const recipeCollection = firestore().collection('recipe');
+const recipeCollection = firestore().collection('recipes');
 
 const getUid = () => auth().currentUser?.uid;
 
