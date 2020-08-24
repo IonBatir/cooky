@@ -3,6 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { Header, ErrorAlert, Spinner, RecipeItem } from '../components';
 import { getCook } from '../api/firestore';
 import { COLOR, LIST_ITEM_HEIGHT, SPACING } from '../theme';
+import { COOKING_SCREEN } from '../constants';
 import commonStyles from './styles';
 import i from '../i18n';
 
@@ -12,7 +13,11 @@ export default function CookingList({ navigation }) {
   useEffect(
     () =>
       getCook(
-        data => setCook({ data, loading: false }),
+        data =>
+          setCook({
+            data,
+            loading: false,
+          }),
         error => {
           setCook({ data: [], loading: false });
           ErrorAlert(error.userInfo?.message);
@@ -24,7 +29,7 @@ export default function CookingList({ navigation }) {
   const renderItem = ({ item }) => (
     <RecipeItem
       name={item.name}
-      handlePress={() => navigation.navigate(RECIPE_SCREEN, { ...item })}
+      handlePress={() => navigation.navigate(COOKING_SCREEN, { ...item })}
     />
   );
 

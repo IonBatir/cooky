@@ -68,6 +68,16 @@ export const getRecipes = (
     error => errorCallback(error),
   );
 
+export const getRecipe = id =>
+  recipeCollection
+    .doc(id)
+    .get()
+    .then(doc =>
+      doc.exists
+        ? Promise.resolve(doc.data())
+        : Promise.reject({ userInfo: { message: i.t('noRecipe') } }),
+    );
+
 export const addRecipe = (name, ingredients, algorithm) =>
   recipeCollection.add({ name, ingredients, algorithm, uid: getUid() });
 
