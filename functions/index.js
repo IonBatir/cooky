@@ -57,7 +57,7 @@ function generateCookingRecipes(uid) {
       const cleanFood = cleanString(food.join(''));
       if (
         recipe.ingredients.every(ingredient =>
-          cleanFood.contains(cleanFood(ingredient)),
+          cleanFood.contains(cleanString(ingredient)),
         )
       )
         validRecipes.push({ recipeId: recipe.id, name: recipe.name });
