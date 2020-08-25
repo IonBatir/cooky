@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { Notifications } from 'react-native-notifications';
 import { addFood } from '../api/firestore';
 import { TextField, ErrorAlert, Spinner } from '../components';
 import { SPACING, COLOR, FONT_FAMILY, FONT_SIZE } from '../theme';
@@ -33,16 +32,6 @@ export default function AddFood({ navigation, route }) {
     addFood(name.value, expiryDate)
       .then(() => {
         setLoading(false);
-        console.log('expiryDate', expiryDate);
-        const fireDate = new Date(expiryDate.getTime());
-        console.log('fireDate', fireDate);
-        fireDate.setDate(expiryDate.getDate() - 1);
-        console.log('fireDate', fireDate);
-        Notifications.postLocalNotification({
-          body: i.t('notification'),
-          title: `${name.value} ${i.t('expiry')}`,
-          fireDate: fireDate.getTime(),
-        });
         navigation.navigate(FOOD_LIST_SCREEN);
       })
       .catch(error => {
@@ -50,6 +39,9 @@ export default function AddFood({ navigation, route }) {
         setLoading(false);
       });
   };
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
   return loading ? (
     <Spinner />
@@ -85,7 +77,7 @@ export default function AddFood({ navigation, route }) {
       {(isIOS || showDatePicker) && (
         <DateTimePicker
           value={expiryDate}
-          minimumDate={new Date()}
+          minimumDate={tomorrow}
           onChange={(_, date) => {
             date && setExpiryDate(date);
             setShowDatePicker(false);

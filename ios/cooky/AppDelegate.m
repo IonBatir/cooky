@@ -12,7 +12,6 @@
 #import <React/RCTRootView.h>
 
 #import <Firebase.h>
-#import "RNNotifications.h"
 
 @implementation AppDelegate
 
@@ -35,8 +34,6 @@
       [FIRApp configure];
   }
 
-  [RNNotifications startMonitorNotifications];
-
   return YES;
 }
 
@@ -47,14 +44,6 @@
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
-}
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  [RNNotifications didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-}
-
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-  [RNNotifications didFailToRegisterForRemoteNotificationsWithError:error];
 }
 
 @end
