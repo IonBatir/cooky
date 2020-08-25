@@ -80,7 +80,7 @@ export const getRecipe = id =>
 
 export const addRecipe = (name, ingredients, algorithm) =>
   recipeCollection.add({
-    name: name.trip(),
+    name: name.trim(),
     ingredients: ingredients.map(ingredient => ingredient.trim()),
     algorithm: algorithm.trim(),
     uid: getUid(),
