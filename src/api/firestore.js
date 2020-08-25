@@ -30,7 +30,7 @@ export const getFood = (
 
 export const addFood = (name, expiryDate) =>
   foodCollection.add({
-    name,
+    name: name.trim(),
     uid: getUid(),
     expiryDate: firestore.Timestamp.fromDate(expiryDate),
   });
@@ -79,7 +79,12 @@ export const getRecipe = id =>
     );
 
 export const addRecipe = (name, ingredients, algorithm) =>
-  recipeCollection.add({ name, ingredients, algorithm, uid: getUid() });
+  recipeCollection.add({
+    name: name.trip(),
+    ingredients: ingredients.map(ingredient => ingredient.trim()),
+    algorithm: algorithm.trim(),
+    uid: getUid(),
+  });
 
 export const getCook = (
   successCallback,
