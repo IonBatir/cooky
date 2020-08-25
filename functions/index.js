@@ -83,7 +83,7 @@ exports.handleCreateFood = functions.firestore
   });
 
 exports.handleCreateRecipe = functions.firestore
-  .document('/food/{documentId}')
+  .document('/recipes/{documentId}')
   .onCreate(async snap => {
     const uid = snap.get('uid');
     const recipes = await generateCookingRecipes(uid);
