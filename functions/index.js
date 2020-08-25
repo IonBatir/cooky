@@ -53,11 +53,11 @@ function getRecipes() {
 function generateCookingRecipes(uid) {
   return Promise.all([getFood(uid), getRecipes()]).then(([food, recipes]) => {
     const validRecipes = [];
+    const cleanFood = cleanString(food.map(fd => fd.name).join(''));
     recipes.forEach(recipe => {
-      const cleanFood = cleanString(food.join(''));
       if (
         recipe.ingredients.every(ingredient =>
-          cleanFood.contains(cleanString(ingredient)),
+          cleanFood.includes(cleanString(ingredient)),
         )
       )
         validRecipes.push({ recipeId: recipe.id, name: recipe.name });
@@ -71,21 +71,13 @@ function setRecipes(uid, recipes) {
     .firestore()
     .collection('cook')
     .doc(uid)
-    .set({ uid, recipes });
+    .set({ recipes });
 }
 
 exports.handleCreateFood = functions.firestore
   .document('/food/{documentId}')
   .onCreate(async snap => {
-    const uid = snap.data().uid;
-    const recipes = await generateCookingRecipes(uid);
-    return setRecipes(uid, recipes);
-  });
-
-exports.handleDeleteFood = functions.firestore
-  .document('/food/{documentId}')
-  .onDelete(async snap => {
-    const uid = snap.data().uid;
+    const uid = snap.get('uid');
     const recipes = await generateCookingRecipes(uid);
     return setRecipes(uid, recipes);
   });
@@ -93,7 +85,15 @@ exports.handleDeleteFood = functions.firestore
 exports.handleCreateRecipe = functions.firestore
   .document('/food/{documentId}')
   .onCreate(async snap => {
-    const uid = snap.data().uid;
+    const uid = snap.get('uid');
+    const recipes = await generateCookingRecipes(uid);
+    return setRecipes(uid, recipes);
+  });
+
+exports.handleDeleteFood = functions.firestore
+  .document('/food/{documentId}')
+  .onDelete(async snap => {
+    const uid = snap.get('uid');
     const recipes = await generateCookingRecipes(uid);
     return setRecipes(uid, recipes);
   });
