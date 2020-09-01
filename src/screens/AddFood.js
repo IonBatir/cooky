@@ -10,12 +10,15 @@ import commonStyles from './styles';
 import i from '../i18n';
 
 export default function AddFood({ navigation, route }) {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
   const nameInput = useRef(null);
   const [name, setName] = useState({
     value: route.params?.name || '',
     error: null,
   });
-  const [expiryDate, setExpiryDate] = useState(new Date());
+  const [expiryDate, setExpiryDate] = useState(tomorrow);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -39,9 +42,6 @@ export default function AddFood({ navigation, route }) {
         setLoading(false);
       });
   };
-
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
 
   return loading ? (
     <Spinner />
