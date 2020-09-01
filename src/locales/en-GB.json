@@ -39,6 +39,8 @@
   "pleaseLogin": "Please login to your account",
   "recipeName": "Recipe name",
   "recipes": "Recipes",
+  "recoverPassword": "Recover Password",
+  "recoverPasswordMessage": "We have sent you an email with instructions to reset your password.",
   "register": "Register",
   "resetPassword": "Reset Password",
   "scanBarcode": "Scan barcode",

@@ -39,6 +39,8 @@
   "pleaseLogin": "Autentifică-te în contul tău",
   "recipeName": "Numele rețetei",
   "recipes": "Rețete",
+  "recoverPassword": "Resetarea Password",
+  "recoverPasswordMessage": "We have sent you an email with instructions to reset your password.",
   "register": "Înregistrare",
   "resetPassword": "Resetează parola",
   "scanBarcode": "Scanează codul de bare",

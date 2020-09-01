@@ -21,11 +21,9 @@ export default function ResetPassword({ navigation }) {
     resetPassword(email.value)
       .then(() => {
         setLoading(false);
-        Alert.alert(
-          'Recover Password',
-          'We have sent you an email with instructions to reset your password.',
-          [{ text: 'OK', onPress: () => navigation.navigate(LOGIN_SCREEN) }],
-        );
+        Alert.alert(i.t('recoverPassword'), i.t('recoverPasswordMessage'), [
+          { text: 'OK', onPress: () => navigation.navigate(LOGIN_SCREEN) },
+        ]);
       })
       .catch(error => {
         setLoading(false);
