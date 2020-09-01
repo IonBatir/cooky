@@ -29,12 +29,12 @@ export default function FoodList({ navigation }) {
       buttonColor={COLOR.PRIMARY}
       renderIcon={() => <Icon name="add" size={40} color={COLOR.WHITE} />}>
       <ActionButton.Item
-        title="Add Food"
+        title={i.t('addFood')}
         onPress={() => navigation.navigate(ADD_FOOD_SCREEN)}>
         <Icon name="create" size={30} color={COLOR.WHITE} />
       </ActionButton.Item>
       <ActionButton.Item
-        title="Scan Food"
+        title={i.t('scanBarcode')}
         onPress={() => navigation.navigate(SCAN_FOOD_SCREEN)}>
         <Icon name="center-focus-strong" size={30} color={COLOR.WHITE} />
       </ActionButton.Item>
