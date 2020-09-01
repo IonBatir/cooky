@@ -8,7 +8,7 @@ import {
   LIST_ITEM_HEIGHT,
 } from '../theme';
 
-export default function FoodList({ name, handlePress }) {
+export default function RecipeItem({ name, handlePress }) {
   return (
     <TouchableOpacity onPress={handlePress}>
       <View style={styles.container}>
